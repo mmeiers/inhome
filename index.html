@@ -1,53 +1,143 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>Blueprint: Background Slideshow</title>
-		<meta name="description" content="Blueprint: Background Slideshow" />
-		<meta name="keywords" content="blueprint, background image slideshow, fullscreen slideshow, jquery, fullscreen image, web development" />
-		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<script src="js/modernizr.custom.js"></script>
-	</head>
-	<body>
-		<div class="container">
-			<!--<header class="clearfix">
-				<span>Blueprint</span>
-				<h1>Background Slideshow</h1>
-				<nav>
-					<a href="http://tympanus.net/Blueprints/ResponsiveFullWidthGrid/" class="icon-arrow-left" data-info="previous Blueprint">Previous Blueprint</a>
-					<a href="http://tympanus.net/codrops/?p=14667" class="icon-drop" data-info="back to the Codrops article">back to the Codrops article</a>
-				</nav>
-			</header>-->
-          <div class="shade"></div>
-			<div class="main">
-				<ul id="cbp-bislideshow" class="cbp-bislideshow">
-					<li><img class="pattern" src="images/1.jpg" alt="image01"/></li>
-					<li><img class="pattern" src="images/2.jpg" alt="image02"/></li>
-					<li><img class="pattern" src="images/3.jpg" alt="image03"/></li>
-					<li><img class="pattern" src="images/4.jpg" alt="image04"/></li>
-					<li><img class="pattern" src="images/5.jpg" alt="image05"/></li>
-					<!--<li><img class="photos" src="images/6.jpg" alt="image06"/></li>-->
-				</ul>
-				<div id="cbp-bicontrols" class="cbp-bicontrols">
-					<span class="cbp-biprev"></span>
-					<span class="cbp-bipause"></span>
-					<span class="cbp-binext"></span>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Material VCard</title>
+    
+    
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
+
+        <link rel="stylesheet" href="scss/style.css">
+     <link rel="stylesheet" href="css/ken-burns.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <div class="cards">
+	
+	<!--<div class="contact">Contact Me</div>-->
+	<div class="contact-form">
+		<a href="#" class="close"><i class="fa fa-times"></i></a>
+		<form>
+			<div class="control"><input type="text"  id="name"/><label for="name">Your Name</label></div>
+			<div class="control"><input type="text"  id="email"/><label for="email">Email Address</label></div>
+			<div class="control"><input type="text"  id="url"/><label for="url">Website</label></div>
+			<div class="control"><textarea name="" id="message"></textarea><label for="message">Message</label></div>
+			<div class="control submit"><input type="submit" /></div>
+		</form>
+	</div>
+	
+	 <div class="card active" id="overview">
+		<a class="card-toggle"><i class="fa fa-arrow-circle-left"></i></a>
+		<div class="card-content">
+			<div class="row">
+				<div class="left col">
+					<h2>S+M+M<strong>InHome Board</strong></h2>
+					
+					<p>Touch a icon below to find out what Mabel, Sarah and Mathew are up to. Dont forget to help them clean their cat box.</p>
+					
 				</div>
-          </div>
+				<div class="kenburn-slider">
+  <ul class="slides">
+    <li>
+      <div data-bg="images/1.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="center center" class="slide-image"></div>
+    </li>
+    <li>
+      <div data-bg="images/2.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="top left" class="slide-image"></div>
+    </li>
+    <li>
+      <div data-bg="images/3.jpg?fit=crop&amp;fm=jpg&amp;h=725&amp;q=75&amp;w=1050" data-kenburn-start="top center" class="slide-image"></div>
+    </li>
+    <li>
+      <div data-bg="images/4.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="top right" class="slide-image"></div>
+    </li>
+    <li>
+      <div data-bg="images/5.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="bottom left" class="slide-image"></div>
+    </li>
+  </ul>
+</div>
+			</div>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<!-- imagesLoaded jQuery plugin by @desandro : https://github.com/desandro/imagesloaded -->
-		<script src="js/jquery.imagesloaded.min.js"></script>
-		<script src="js/cbpBGSlideshow.min.js"></script>
-		<script>
-			$(function() {
-				cbpBGSlideshow.init();
-			});
-		</script>
-	</body>
+	</div> 
+	
+
+	<div class="card" id="dribbble">
+		<a class="card-toggle"><i><span class="fa fa-calendar"></span></i></a>
+		<div class="card-content">
+			<div class="row">
+				<div class="left col">
+					<h2>S+M+M <strong>Calendar</strong></h2>
+					
+					<p>This will utilize spreadsheet web component to display upcoming events calendar of events. The spreadsheet will be dynamicaly updated via ITTT from Google Calendarss.</p>
+					
+				</div>
+				<!--<div class="right col"><img src="https://dl.dropboxusercontent.com/u/26808427/cdn/preview.jpg" alt="" /></div>-->
+			</div>
+		</div>
+	</div> 
+	
+	<div class="card" id="behance">
+		<a class="card-toggle"><i><span class="fa fa-list-ol"></span></i></a>
+		<div class="card-content">
+			<div class="row">
+				<div class="left col">
+					<h2>S+M+M <strong>To Do List</strong></h2>
+					<p>A simple to do list with the ability to add or remove items.</p>
+				</div>
+				<!--<div class="right col"><img src="https://dl.dropboxusercontent.com/u/26808427/cdn/preview.jpg" alt="" /></div>-->
+			</div>
+		</div>
+	</div>
+	<div class="card" id="linkedin">
+		<a class="card-toggle"><i><span class="fa fa-shopping-cart"></span></i></a>
+		<div class="card-content">
+			<div class="row">
+				<div class="left col">
+					<h2>S+M+M <strong>Grocery List</strong></h2>
+				
+					<p>Grocery list that can be added from google spreadsheets. Possbily add the ability to add or remove items similar to do list.</p>
+				</div>
+				<!--<div class="right col"><img src="https://dl.dropboxusercontent.com/u/26808427/cdn/preview.jpg" alt="" /></div>-->
+			</div>
+		</div>
+	</div>
+	<!--<div class="card" id="twitter">
+		<a class="card-toggle"><i><span class="fa fa-twitter"></span></i></a>
+		<div class="card-content">
+			<div class="row">
+				<div class="left col">
+					<h2>My <strong>Twitter</strong></h2>
+				
+					<p>Fugit veniam, animi architecto doloribus veritatis vitae sint doloremque possimus quae. Pariatur libero, veniam voluptatibus alias distinctio qui nostrum debitis voluptate amet hic repellat officiis nam quos vel doloremque praesentium.</p>
+				</div>
+				<div class="right col"><img src="https://dl.dropboxusercontent.com/u/26808427/cdn/preview.jpg" alt="" /></div>
+			</div>
+		</div>
+	</div>-->
+	
+	
+</div>
+    
+          <!--<div class="shade"></div>-->
+    
+
+    
+    
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/jquery.flexslider-min.js'></script>
+
+        <script src="js/ken-burns.js"></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
 </html>

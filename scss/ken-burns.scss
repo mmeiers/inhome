@@ -1,0 +1,66 @@
+.kenburn-slider{
+	width: 960px;
+	margin: 30px auto;
+	position: relative;
+	
+	.slides{
+		list-style: none;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		
+		> li{
+			float: left;
+			margin-right: -100%;
+			width: 100%;
+			overflow: hidden;
+			height: 450px;
+			position: relative;
+		}
+	}
+	
+	.flex-direction-nav{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		
+		.flex-prev,.flex-next{
+			background-color: rgba(255,255,255,.7);
+			color: #333;
+			padding: 10px 20px;
+			text-decoration: none;
+			position: absolute;
+			height: 1em;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			z-index: 8;
+			text-align: center;
+			
+		}
+		.flex-prev{left: 0}
+		.flex-next{right: 0}
+	}
+}
+.slide-image{
+	background-size: cover;
+	background-position: center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	
+	.flex-active-slide &{
+		animation: zoomout 5s;	
+	}
+}
+
+@-webkit-keyframes zoomout{
+	0%{
+		transform: scale(1.3);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
