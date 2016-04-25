@@ -101,7 +101,7 @@
                       <!-- Details Card View-->
                       <div class="wrapper">
                         <div class="overlay">
-                          <div class="card">
+                          <div class="details">
 
                             <h3 class="detail__column2"></h3>
                             <img class="detail__column1" src="" alt="">
@@ -129,7 +129,29 @@
 			<div class="row">
 				<div class="left col">
 					<h2>Meiers <strong>Grocery List</strong></h2>
-					<p>Quia fugit animi, iure error veritatis? Ipsa quis, deserunt illum culpa ab id mollitia nesciunt commodi aut dolores vero ipsam ut minima neque nam excepturi corporis obcaecati consequuntur accusantium laborum!</p>
+                  
+                  <!-- Sheets Component -->
+                  
+                  <rise-google-sheet
+          id="googleSheetSouth"
+          key="1Yzb1gIG1dj2_te1Jvh4wJRdofUCmNfZretDjQ8nWUas"
+          tab-id="4"
+          min-row="1"
+          max-row="3"
+          max-column="1"
+          refresh="36000"
+          return-empty="true"></rise-google-sheet>
+                      
+                  
+					 <div id="grocery">
+
+                      <div class="page">
+                      <!-- Sheets Data -->
+
+                        <div class="grocery__list">
+                        </div>
+                      </div>
+                      </div>
 				</div>
 			</div>
 		</div>

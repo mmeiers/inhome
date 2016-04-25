@@ -4,7 +4,7 @@ $(function(){
   var $page = $(".page");
   var $wrapper = $(".wrapper");
   var $overlay = $(".overlay");
-  var $card = $(".card");
+  var $details = $(".details");
 
   //open modal when card is clicked
   $page.on("click",".directory__row", function(){
@@ -15,14 +15,12 @@ $(function(){
     var $detailC3 = $(this).attr("detailColumn3");
     var $detailC4 = $(this).attr("detailColumn4");
     var $detailC5 = $(this).attr("detailColumn5");
-    var $detailC6 = $(this).attr("detailColumn6");
 
-    $card.find(".detail__column1").attr("src",$detailC1);
-    $card.find(".detail__column2").text($detailC2);
-    $card.find(".detail__column3").text($detailC3);
-    $card.find(".detail__column4").text($detailC4);
-    $card.find(".detail__column5").text($detailC5);
-    $card.find(".detail__column6").text($detailC6);
+    $details.find(".detail__column1").attr("src",$detailC1);
+    $details.find(".detail__column2").text($detailC2);
+    $details.find(".detail__column3").text($detailC3);
+    $details.find(".detail__column4").text($detailC4);
+    $details.find(".detail__column5").text($detailC5);
     
     $overlay.fadeIn();
   });
@@ -31,12 +29,11 @@ $(function(){
 
   $wrapper.on("click", ".button__close", function(){
     $overlay.fadeOut();
-    $card.find(".detail__column1").attr("",$detailC1);
-    $card.find(".detail__column2").text("");
-    $card.find(".detail__column3").text("");
-    $card.find(".detail__column4").text("");
-    $card.find(".detail__column5").text("");
-    $card.find(".detail__column6").text("");
+    $details.find(".detail__column1").attr("",$detailC1);
+    $details.find(".detail__column2").text("");
+    $details.find(".detail__column3").text("");
+    $details.find(".detail__column4").text("");
+    $details.find(".detail__column5").text("");
   });
 
 });

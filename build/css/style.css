@@ -141,6 +141,11 @@ body {
   height: 60vh;
   overflow: hidden !important; }
 
+#grocery {
+  width: 95vw;
+  height: 60vh;
+  overflow: hidden !important; }
+
 .directory__head {
   color: white;
   font-weight: 600;
@@ -152,7 +157,11 @@ body {
   display: table;
   float: left; }
 
-.column1, .column2, .column3, .column4, .column5 {
+.groceryRow {
+  display: table;
+  float: left; }
+
+.column1, .column2, .column3, .column4, .column5, .columnGrocery {
   font-size: 2vw;
   display: table-cell;
   vertical-align: middle;
@@ -162,25 +171,25 @@ body {
 /*.directory__row:nth-child(odd) {
   background-color:$grey;
 }*/
-.directory__row {
+.directory__row, .grocery__row {
   border-bottom: 1px #FFFFFF solid; }
 
-.directory__head .column1, .directory__row .column1 {
+.directory__head .column1, .directory__row .column1, .grocery__row .column1 {
   width: 10vw; }
 
-.directory__head .column2, .directory__row .column2 {
+.directory__head .column2, .directory__row .column2, .grocery__row .column2 {
   width: 30vw; }
 
-.directory__head .column3, .directory__row .column3 {
+.directory__head .column3, .directory__row .column3, .grocery__row .column3 {
   width: 30vw; }
 
-.directory__head .column4, .directory__row .column4 {
+.directory__head .column4, .directory__row .column4, .grocery__row .column4 {
   width: 30vw; }
 
-.directory__head .column5, .directory__row .column5 {
+.directory__head .column5, .directory__row .column5, .grocery__row .column5 {
   width: 10vw; }
 
-.directory__head img, .directory__row img {
+.directory__head img, .directory__row img, .grocery__row img {
   height: 8vw;
   margin-top: .7vw;
   width: 8vw;
@@ -196,7 +205,7 @@ body {
   left: 0;
   z-index: 100;
   display: none; }
-  .overlay .card {
+  .overlay .details {
     width: 80vw;
     height: 80vh;
     border-radius: 10px;
@@ -208,7 +217,7 @@ body {
     left: 10vw;
     z-index: 200;
     float: left; }
-    .overlay .card .button__close {
+    .overlay .details .button__close {
       width: 100px;
       height: 100px;
       border-radius: 50%;
@@ -218,7 +227,7 @@ body {
       top: -50px;
       right: -50px;
       z-index: 201; }
-      .overlay .card .button__close .line1, .overlay .card .button__close .line2 {
+      .overlay .details .button__close .line1, .overlay .details .button__close .line2 {
         width: 60px;
         height: 8px;
         border-radius: 4px;
@@ -226,36 +235,32 @@ body {
         position: absolute;
         top: 46px;
         left: 20px; }
-      .overlay .card .button__close .line1 {
+      .overlay .details .button__close .line1 {
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg); }
-      .overlay .card .button__close .line2 {
+      .overlay .details .button__close .line2 {
         -webkit-transform: rotate(-45deg);
         transform: rotate(-45deg); }
-    .overlay .card .detail__column1 {
+    .overlay .details .detail__column1 {
       border-radius: .5vw;
       float: left;
       margin: 0vw 2vw 1vw 0vw; }
-      .overlay .card .detail__column1 img {
-        width: 200px; }
-    .overlay .card .detail__column2 {
-      font-weight: 700;
+    .overlay .details .detail__column2 {
+      font-weight: 700 !important;
       font-size: 6vw;
       margin: 0;
       margin-top: -1vw;
       font-family: "Open Sans", Helvetica, sans-serif; }
-    .overlay .card .detail__column3, .overlay .card .detail__column4, .overlay .card .detail__column5 {
+    .overlay .details h3 {
+      color: #f5c13e; }
+    .overlay .details .detail__column3, .overlay .details .detail__column4, .overlay .details .detail__column5 {
       margin: 0;
       padding: 0vw 1vw 0vw 1vw;
-      font-weight: 500;
+      font-weight: 500 !important;
       font-size: 3vw;
-      font-family: "Open Sans", Helvetica, sans-serif; }
-    .overlay .card .detail__column6 {
-      width: 100%;
-      border-radius: .5vw;
-      font-weight: 300;
-      font-size: 2vw;
-      margin-bottom: 1vw; }
+      font-family: "Open Sans", Helvetica, sans-serif;
+      color: #302f34 !important;
+      float: left !important; }
 
 body {
   min-height: 100vh;
@@ -386,9 +391,6 @@ p {
         text-transform: uppercase; }
         .cards .card-content .col h2 strong {
           font-weight: 700; }
-      .cards .card-content .col img {
-        max-width: 90%;
-        width: 100%; }
       .cards .card-content .col.left {
         -webkit-transform: translate3d(0, 0, 0);
                 transform: translate3d(0, 0, 0);

@@ -35,6 +35,12 @@ body {
   overflow:hidden !important;
 }
 
+#grocery {
+  width:95vw;
+  height:60vh;
+  overflow:hidden !important;
+}
+
 .directory__head {
   color:white;
   font-weight: 600;
@@ -48,8 +54,14 @@ body {
   display: table;
   float: left;
 }
+
+.groceryRow
+{
+  display: table;
+  float: left;
+}
   
-.column1, .column2, .column3, .column4, .column5 {
+.column1, .column2, .column3, .column4, .column5, .columnGrocery, {
   font-size:2vw;
   display: table-cell;
   vertical-align: middle;
@@ -62,11 +74,11 @@ body {
   background-color:$grey;
 }*/
 
-.directory__row{
+.directory__row, .grocery__row, {
   border-bottom: 1px $white solid;
 } 
 
-.directory__head , .directory__row {
+.directory__head , .directory__row, .grocery__row {
 
   .column1 {
     width: 10vw;  
@@ -107,7 +119,7 @@ body {
     z-index:100;
     display:none;
 
-    .card {
+    .details {
       width:80vw;
       height:80vh;
       border-radius:10px;
@@ -156,32 +168,31 @@ body {
         border-radius: .5vw;
         float:left;
         margin: 0vw 2vw 1vw 0vw;
-        img{width:200px;}
+        
       }
 
       .detail__column2 {
-        font-weight:700;
+        font-weight:700 !important;
         font-size:6vw;
         margin: 0;
         margin-top: -1vw;
         font-family:$font-stack;
       }
+      h3 {
+        color:$primary;
+      }
+      
 
       .detail__column3, .detail__column4, .detail__column5 {
         margin:0;
         padding: 0vw 1vw 0vw 1vw;
-        font-weight:500;
+        font-weight:500 !important;
         font-size:3vw;
         font-family:$font-stack;
+        color:$darkgrey !important;
+        float:left !important;
       }
       
-      .detail__column6 {
-        width:100%;
-        border-radius: .5vw;
-        font-weight:300;
-        font-size:2vw;
-        margin-bottom: 1vw;
-      }
 
     }// .card
 
@@ -330,10 +341,7 @@ p {
 				}
 			}
 			
-			img{
-				max-width:90%;
-				width: 100%;
-			}
+			
 			
 			&.left{
 				transform: translate3d(0,0, 0);
