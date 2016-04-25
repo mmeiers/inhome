@@ -400,15 +400,33 @@ body {
     opacity: 1;
     color: white; }
   .cards #overview .card-content {
-    background-color: #efefef;
+    background-color: #ccc;
+    opacity: .5;
     -webkit-clip-path: circle(0% at 91.5% 75px); }
   .cards #overview.active .card-toggle {
     opacity: 0; }
   .cards #overview.active .card-content {
     -webkit-clip-path: circle(270% at 91.5% 75px); }
-  .cards #overview .right {
-    background: url(https://dl.dropboxusercontent.com/u/26808427/cdn/james.png) no-repeat bottom right;
-    background-size: contain; }
+  .cards #overview .background {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    min-width: 100%;
+    -webkit-animation-duration: 275s;
+    -webkit-animation-name: slidein;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate; }
+
+@-webkit-keyframes "slidein" {
+  25% {
+    -webkit-transform: scale(1.6) translate3d(-400px, 0px, 0px);
+    transform: scale(1.6) translate3d(-400px, 0px, 0px); }
+  50% {
+    -webkit-transform: scale(1) translate3d(0px, 0px, 0px);
+    transform: scale(1) translate3d(0px, 0px, 0px); }
+  75% {
+    -webkit-transform: scale(1.6) translate3d(400px, 0px, 0px);
+    transform: scale(1.6) translate3d(400px, 0px, 0px); } }
   .cards #dribbble .card-content, .cards #behance .card-content, .cards #linkedin .card-content, .cards #twitter .card-content {
     color: white; }
     .cards #dribbble .card-content p, .cards #behance .card-content p, .cards #linkedin .card-content p, .cards #twitter .card-content p {

@@ -338,7 +338,8 @@ body{
 			color: white;
 		}
 		.card-content{
-			background-color: #efefef;
+			background-color: #ccc;
+            opacity:.5;
 			-webkit-clip-path: circle(0% at 91.5% 75px);
 		}
 		&.active {
@@ -347,11 +348,37 @@ body{
 				-webkit-clip-path: circle(270% at 91.5% 75px);
 			}
 		}
-		
-		.right{
-			background: url(https://dl.dropboxusercontent.com/u/26808427/cdn/james.png) no-repeat bottom right;
-			background-size: contain;
-		}
+      
+      //ANIMATION BACKGROUND
+
+      .background {
+        position: absolute;
+        top:0;
+        z-index: 1;
+          min-width:100%;
+          -webkit-animation-duration: 275s;
+          -webkit-animation-name: slidein;
+          -webkit-animation-iteration-count: infinite;
+          -webkit-animation-direction: alternate;
+        
+      }
+
+      @-webkit-keyframes "slidein" {
+       25% {
+         -webkit-transform: scale(1.6) translate3d(-400px, 0px, 0px);
+         transform: scale(1.6) translate3d(-400px, 0px, 0px);
+       }
+       50% {
+         -webkit-transform: scale(1) translate3d(0px, 0px, 0px);
+         transform: scale(1) translate3d(0px, 0px, 0px);
+       }
+       75% {
+         -webkit-transform: scale(1.6) translate3d(+400px, 0px, 0px);
+         transform: scale(1.6) translate3d(+400px, 0px, 0px);
+       }
+      }
+
+
 	}
 	
 	#dribbble, #behance, #linkedin, #twitter{
@@ -459,3 +486,4 @@ form{
 		border-radius: 40px;
 	}
 }
+
