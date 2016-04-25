@@ -1,0 +1,387 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+
+<!--
+`rise-google-sheet` is a web component that retrieves data from a Google Sheet specified by key.
+It uses the cell-based feed feature of the [Google Sheets API](https://developers.google.com/google-apps/spreadsheets/)
+where each entry represents a single cell.
+
+The `key` attribute is required which is to identify the Google Sheet you want to target.
+A spreadsheet's key can be found in the URL when viewing it in Google Docs
+(e.g. docs.google.com/spreadsheets/d/< KEY >/edit#gid=0).
+
+Optionally, the `tab-id` attribute allows for specifying a particular worksheet tab in the spreadsheet.
+For example, the first tab would be `tab-id="1"`.
+
+The specified feed is periodically retrieved if the `refresh` attribute is set, although a minimum refresh
+time of 10 seconds is enforced.
+
+#### Example Usage
+
+    <rise-google-sheet key="abc123" tab-id="2" min-row="2" refresh="30"></rise-google-sheet>
+
+    <script>
+      var sheet = document.querySelector('rise-google-sheet');
+
+      // Respond to events it fires.
+      sheet.addEventListener('rise-google-sheet-response', function(e) {
+        if (e.detail && e.detail.cells) {
+          console.log(e.detail.cells); // Array of cell objects
+        }
+      });
+
+      sheet.go(); // Executes a request.
+    </script>
+
+#### Range
+
+`rise-google-sheet` allows for fetching specific rows or columns from a worksheet by providing several
+attributes to specify the range of cells you want to retrieve.
+
+For example, to retrieve cells for every row after the first row, and only in the fourth column:
+
+    <rise-google-sheet key="abc123" min-row="2" min-column="4" max-column="4"></rise-google-sheet>
+
+#### Empty cells
+
+Optionally, the `return-empty` attribute allows for retrieving all cell data in a worksheet including empty cells.
+This is helpful if perhaps you want to visualize a table with the data and it's important that empty cells are
+included in the response to accurately populate the table with the data.
+
+Please note that using `return-empty` will return all empty cells, including the excess columns and rows
+in your worksheet. If this is not desired then you can workaround this by deleting the excess columns and rows
+from your worksheet. Alternatively, use the range attributes to specify exactly which cells are required.
+
+For example, to retrieve cells for columns 1-5 and rows 1-10 **and** include empty cells:
+
+    <rise-google-sheet key="abc123" max-column="5" max-row="10" return-empty="true"></rise-google-sheet>
+
+@demo
+-->
+<dom-module id="rise-google-sheet">
+  <template>
+    <iron-ajax id="sheet"
+               handle-as="json"
+               on-response="_onSheetResponse"
+               on-error="_onSheetError">
+    </iron-ajax>
+    <content></content>
+  </template>
+</dom-module>
+
+<script>
+  (function() {
+    /* global Polymer */
+    /* jshint newcap: false */
+
+    "use strict";
+
+    var SCOPE = "https://spreadsheets.google.com/feeds";
+
+    var LOCAL_STORAGE_NAME = "risesheet";
+
+    function supportsLocalStorage() {
+      try {
+        return "localStorage" in window && window.localStorage !== null;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    Polymer({
+      is: "rise-google-sheet",
+
+      properties: {
+        /**
+         * The key of the spreadsheet. This can be found in the URL when viewing
+         * the document in Google Docs (e.g. docs.google.com/spreadsheets/d/<KEY>).
+         */
+        key: {
+          type: String,
+          value: ""
+        },
+
+        /**
+         * Tab within a spreadsheet. For example, the first tab in a spreadsheet
+         * would be `tab-id="1"`.
+         */
+        tabId: {
+          type: Number,
+          value: 1
+        },
+
+        /**
+         * The number of seconds before another request will be made.
+         */
+        refresh: {
+          type: Number,
+          value: 0
+        },
+
+        /**
+         * Returns a list of cell data.
+         */
+        cells: {
+          type: Array,
+          value: function() { return []; },
+          readOnly: true,
+          notify: true
+        },
+
+        /**
+         * The starting column of the worksheet.
+         */
+        minColumn: {
+          type: Number,
+          value: 0
+        },
+
+        /**
+         * The last column of the worksheet to include.
+         */
+        maxColumn: {
+          type: Number,
+          value: 0
+        },
+
+        /**
+         * The starting row of the worksheet.
+         */
+        minRow: {
+          type: Number,
+          value: 0
+        },
+
+        /**
+         * The last row of the worksheet to include.
+         */
+        maxRow: {
+          type: Number,
+          value: 0
+        },
+
+        /**
+         * Include empty cells of the worksheet.
+         */
+        returnEmpty: {
+          type: Boolean,
+          value: false
+        }
+      },
+
+      _requestPending: false,
+
+      // Element Behavior
+
+      /**
+       * Fired when a response is received.
+       *
+       * @param {Object} detail
+       * @param {Object} detail.data The data returned by the Google Sheets API
+       * @event rise-google-sheet-response
+       */
+
+      /**
+       * Fired when an error is received.
+       *
+       * @event rise-google-sheet-error
+       */
+
+      _getCachedData: function () {
+        if (supportsLocalStorage()) {
+          // retrieve cached data and parse back
+          return JSON.parse(localStorage.getItem(LOCAL_STORAGE_NAME));
+        }
+
+        return null;
+      },
+
+      _setCachedData: function (data) {
+        if (supportsLocalStorage()) {
+          try {
+            localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(data));
+          } catch(e) {
+            console.warn(e.message);
+          }
+        }
+      },
+
+      _startTimer: function() {
+        var refreshFn = this.go,
+          self = this;
+
+        this.refresh = parseInt(this.refresh, 10);
+
+        if (!isNaN(this.refresh) && this.refresh !== 0) {
+          this.refresh = (this.refresh < 10) ? 10 : this.refresh;
+
+          this.debounce("refresh", function () {
+            refreshFn.call(self);
+          }, this.refresh * 1000);
+        }
+      },
+
+      _prepareResponse: function (resp) {
+        var response = {};
+
+        /*
+         Provide an empty array if entry property missing in feed object. This can occur if any range
+         values (minColumn, maxColumn, minRow, maxRow) are out of scope of the data entered in worksheet
+        */
+        response.cells = (resp.feed.entry) ? resp.feed.entry : [];
+
+        // TODO: provide spreadsheet meta data (title, authors, etc)?
+
+        return response;
+      },
+
+      _onSheetError: function(e, err) {
+        // in case there are other instances of rise-google-sheet
+        e.stopPropagation();
+
+        // reset the value of cells
+        this._setCells([]);
+
+        // if cached data exists, remove it
+        if (this._getCachedData()) {
+          try {
+            localStorage.removeItem(LOCAL_STORAGE_NAME);
+          } catch (ex) {
+            console.warn(ex.message);
+          }
+        }
+
+        this.fire("rise-google-sheet-error", err.error.message);
+
+        this._requestPending = false;
+        // not calling _startTimer(), can't distinguish between errors to determine if refresh is appropriate
+      },
+
+      _handleEmptyResponse: function (e) {
+        var cachedData;
+
+        // check xhr.status to be 0, <iron-ajax> treats no status (no internet connection) as successful
+        if (e.target.lastRequest && e.target.lastRequest.xhr.status === 0) {
+          cachedData = this._getCachedData();
+
+          /*
+           * NOTE:
+           * Unfortunately xhr.status is also 0 when incorrect tab id is used. If cached data exists,
+           * it will be provided even though tab id is incorrect.
+           */
+
+          if (cachedData) {
+            this._setCells(cachedData.cells);
+
+            this.fire("rise-google-sheet-response", cachedData);
+
+            this._requestPending = false;
+            this._startTimer();
+
+            return;
+          }
+        }
+
+        // no response and no cached data available, process this as an error
+        this._onSheetError(e, {
+          error: {
+            message: "Empty response and no cached data available."
+          }
+        });
+      },
+
+      _onSheetResponse: function(e, resp) {
+        var responseData;
+
+        // in case there are other instances of rise-google-sheet
+        e.stopPropagation();
+
+        if (resp && resp.response) {
+          responseData = this._prepareResponse(resp.response);
+
+          // cache the data if possible
+          this._setCachedData(responseData);
+
+          // use setter method to apply cells value because this property is read only
+          this._setCells(responseData.cells);
+
+          this.fire("rise-google-sheet-response", responseData);
+
+          this._requestPending = false;
+          this._startTimer();
+
+        }
+        else {
+          /*
+           * This can happen here because <iron-ajax> sets xhr.status to 0 in certain circumstances.
+           * There is an open issue regarding the behaviour:
+           *
+           * https://github.com/PolymerElements/iron-ajax/issues/45
+           *
+           */
+          this._handleEmptyResponse(e);
+        }
+      },
+
+      _getParams: function() {
+        var params = {};
+
+        // required in every request
+        params.alt = "json";
+
+        // return empty cells
+        if (this.returnEmpty) {
+          params["return-empty"] = true;
+        }
+
+        this.minColumn = parseInt(this.minColumn, 10);
+        this.maxColumn = parseInt(this.maxColumn, 10);
+        this.minRow = parseInt(this.minRow, 10);
+        this.maxRow = parseInt(this.maxRow, 10);
+
+        if (!isNaN(this.minColumn) && this.minColumn !== 0) {
+          params["min-col"] = this.minColumn;
+        }
+
+        if (!isNaN(this.maxColumn) && this.maxColumn !== 0) {
+          params["max-col"] = this.maxColumn;
+        }
+
+        if (!isNaN(this.minRow) && this.minRow !== 0) {
+          params["min-row"] = this.minRow;
+        }
+
+        if (!isNaN(this.maxRow) && this.maxRow !== 0) {
+          params["max-row"] = this.maxRow;
+        }
+
+        return params;
+      },
+
+      _getUrl: function() {
+        return SCOPE + "/cells/" + this.key + "/" +  this.tabId + "/public/full";
+      },
+
+      /**
+       * Performs a request to obtain the Google Sheet data
+       *
+       */
+      go: function() {
+        // key is required, don't make request if missing 'key' or if a previous request is pending
+        if (this.key === "" || this._requestPending) {
+          return;
+        }
+
+        // set flag to prevent further requests in case go() function is called before prior request responds
+        this._requestPending = true;
+
+        // apply url and params to the iron-ajax instance
+        this.$.sheet.url = this._getUrl();
+        this.$.sheet.params = this._getParams();
+
+        this.$.sheet.generateRequest();
+      }
+
+    });
+  })();
+</script>
