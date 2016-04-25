@@ -14,8 +14,7 @@
   <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
   <link rel="import" href="bower_components/rise-google-sheet/rise-google-sheet.html">
 
-    <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 
     
     
@@ -35,9 +34,7 @@
 		<div class="card-content">
 			<div class="row">
 				<div class="left col">
-					<h2>Personal <strong>Social Card</strong></h2>
-					
-					<p>Click one of the social icons below to switch between card or click Contact Me link to show the contact form card. <br /><em>Make sure you're running this experiment in the latest Chrome browser.</em></p>
+                  <h2>Meiers Family<br/><strong>Mabel, Mat &amp; Sarah </strong></h2>
                   
                   <div class="kenburn-slider">
                     <ul class="slides">
@@ -57,27 +54,7 @@
                         <div data-bg="build/img/5.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="bottom left" class="slide-image"></div>
                       </li>
                     </ul>
-                  </div>
-                  
-                  <script>
-                  
-                  $(".slide-image").each(function(){
-	var bg = $(this).data("bg");
-	var pos = $(this).data("kenburn-start");
-	
-	$(this).css({
-		"background-image":"url("+bg+")",
-		"transform-origin": pos
-	});
-});
-
-$(".kenburn-slider").flexslider({
-	slideshow: true,
-	slideshowSpeed : 7000,
-	animationSpeed : 1000,
-	controlNav: false,
-});</script>
-					
+                  </div>					
 				</div>
 				
 			</div>
@@ -90,7 +67,7 @@ $(".kenburn-slider").flexslider({
 		<div class="card-content">
 			<div class="row">
 				<div class="left col">
-					<h2>My <strong>Calendar</strong></h2>
+					<h2>Meiers <strong>Calendar</strong></h2>
 					
                       <!-- Sheets Component -->
                       <rise-google-sheet
@@ -105,7 +82,7 @@ $(".kenburn-slider").flexslider({
                       <div class="directory__head">
                           <ul class="individualRow">
                             <li class="column1"></li>
-                            <li class="column2">Description</li>
+                            <li class="column2">Event</li>
                             <li class="column3">When</li>
                             <li class="column4">End Time</li>
                             <!--<li class="column5">Details</li>-->
@@ -151,7 +128,7 @@ $(".kenburn-slider").flexslider({
 		<div class="card-content">
 			<div class="row">
 				<div class="left col">
-					<h2>My <strong>Grocery List</strong></h2>
+					<h2>Meiers <strong>Grocery List</strong></h2>
 					<p>Quia fugit animi, iure error veritatis? Ipsa quis, deserunt illum culpa ab id mollitia nesciunt commodi aut dolores vero ipsam ut minima neque nam excepturi corporis obcaecati consequuntur accusantium laborum!</p>
 				</div>
 			</div>
@@ -162,7 +139,7 @@ $(".kenburn-slider").flexslider({
 		<div class="card-content">
 			<div class="row">
 				<div class="left col">
-					<h2>My <strong>To Do List</strong></h2>
+					<h2>Meiers <strong>To Do List</strong></h2>
 				
 					<p>Voluptas aliquam, perferendis laboriosam, cumque, autem vero pariatur dolorum tempora sint hic laborum distinctio suscipit magnam, porro provident maxime labore. Porro vel error quaerat consequatur sapiente? Nostrum at voluptatibus necessitatibus.</p>
 				</div>
@@ -171,6 +148,13 @@ $(".kenburn-slider").flexslider({
 	</div>
 	
 </div>
+    
+    
+    
+    
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/jquery.flexslider-min.js'></script>
+    
     <!-- Dependencies for the auto-scroll plugin -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenLite.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/plugins/CSSPlugin.min.js"></script>
