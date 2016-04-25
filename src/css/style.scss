@@ -179,6 +179,14 @@ body {
 
 
 //MATERIAL CARD
+// overview bg color, 
+$darkgrey: #302f34;
+//main icons
+$lightgrey: #fefefe;
+$primary: #f5c13e;
+$secondary: #222222;
+$accent: #f5c13e;
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
 *{
 	box-sizing: border-box;
@@ -186,14 +194,22 @@ body {
 body{
 	min-height: 100vh;
 	display: flex;
-	background-color: #eaeaea;
+	background-color: $lightgrey;
 	font-family: Open Sans;
 	font-weight: 300;
 	line-height: 1.8;
-	background-image: url(https://dl.dropboxusercontent.com/u/26808427/cdn/bg.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+i{
+  color:$lightgrey !important;
+}
+
+p {
+  font-size:2em;
+  width:50%;
+}
+
 .contact{
 	position: absolute;
 	top: 30px;
@@ -238,10 +254,15 @@ body{
 }
 
 .cards{
+
+ 
 	margin: auto;
-	background: #fefefe;
+	background: $darkgrey;
+	/*border-radius: 5px;*/
+	overflow: hidden;
+	box-shadow: 0 2px 10px rgba(0,0,0,.1), 3px 5px 20px rgba(0,0,0,.2);
 	width: 1920px;
-	height:1080px;
+	height:100vh;
 	position: relative;
 	display: flex;
 	align-items: flex-end;
@@ -296,12 +317,15 @@ body{
 			transition: .3s ease .3s;
 			transform: translate3d(0,0,0);
 			vertical-align: top;
+            color: $lightgrey;
 			
 			h2{
 				font-weight: 300;
-				font-size: 3em;
+				font-size: 7em;
 				line-height: 1;
 				margin: 0 0 30px;
+                color: $lightgrey;
+                text-transform:uppercase;
 				strong{
 					font-weight: 700;
 					display: block;
@@ -338,8 +362,7 @@ body{
 			color: white;
 		}
 		.card-content{
-			background-color: #ccc;
-            opacity:.5;
+			background-color: $darkgrey;
 			-webkit-clip-path: circle(0% at 91.5% 75px);
 		}
 		&.active {
@@ -347,6 +370,11 @@ body{
 			.card-content{
 				-webkit-clip-path: circle(270% at 91.5% 75px);
 			}
+		}
+		
+		.right{
+			background: url(https://dl.dropboxusercontent.com/u/26808427/cdn/james.png) no-repeat bottom right;
+			background-size: contain;
 		}
 	}
 	
@@ -361,7 +389,7 @@ body{
 	}
 	#dribbble{ 
 		.card-content{ 
-			background-color: #F46899;
+			background-color: $primary;
 			-webkit-clip-path: circle(0% at 76px 88%);
 			clip-path: circle(0% at 50px 88%);
 	
@@ -373,7 +401,7 @@ body{
 	}
 	#behance {
 		.card-content{ 
-			background-color: #2F98D1;
+			background-color: $secondary;
 			-webkit-clip-path: circle(0% at 150px 88%);
 			clip-path: circle(0% at 150px 88%);
 	
@@ -385,7 +413,7 @@ body{
 	}
 	#linkedin {
 		.card-content{ 
-			background-color: #03679B;
+			background-color: $accent;
 			-webkit-clip-path: circle(0% at 220px 88%);
 			clip-path: circle(0% at 220px 88%);
 	
@@ -397,7 +425,7 @@ body{
 	}
 	#twitter {
 		.card-content{ 
-			background-color: #7FD0ED;
+			background-color: $darkgrey;
 			-webkit-clip-path: circle(0% at 292px 88%);
 			clip-path: circle(0% at 292px 88%);
 	
@@ -542,5 +570,3 @@ html {
             transform: scale(1);
   }
 }
-
-
