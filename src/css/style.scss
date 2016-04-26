@@ -29,13 +29,7 @@ body {
 }
 
 /* SPREADSHEET COMPONENT */
-#directory {
-  width:95vw;
-  height:60vh;
-  overflow:hidden !important;
-}
-
-#grocery {
+#directory, #grocery, #todo {
   width:95vw;
   height:60vh;
   overflow:hidden !important;
@@ -55,13 +49,9 @@ body {
   float: left;
 }
 
-.groceryRow
-{
-  display: table;
-  float: left;
-}
+
   
-.column1, .column2, .column3, .column4, .column5, .columnGrocery, {
+.column1, .column2, .column3, .column4, .column5, .columnGrocery, .columnTodo, {
   font-size:2vw;
   display: table-cell;
   vertical-align: middle;
@@ -74,7 +64,7 @@ body {
   background-color:$grey;
 }*/
 
-.directory__row, .grocery__row, {
+.directory__row, .grocery__row, .todo__row, {
   border-bottom: 1px $white solid;
 } 
 

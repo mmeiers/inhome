@@ -1,13 +1,13 @@
 var RiseVision = RiseVision || {};
-RiseVision.Grocery = {};
+RiseVision.Todo = {};
 
-RiseVision.Grocery = (function() {
+RiseVision.Todo = (function() {
   "use strict";
 
   var rows = [];
   var counter = 0;
   var $mainContainer = $("#main-container")
-  var $groceryList = $(".grocery__list")
+  var $todoList = $(".todo__list")
 
   /*
    *  Private Methods
@@ -76,13 +76,13 @@ RiseVision.Grocery = (function() {
       eventSlides = null,
       numEvents = rows.length;
 
-        $groceryList.empty();
+        $todoList.empty();
 
       for (var i = 0; i < numEvents; i++) {
 
         rowEntry = document.createElement("div");
-        rowEntry.className = "grocery__row clearfix";
-        c1 = document.getElementsByClassName("columnGrocery");
+        rowEntry.className = "todo__row clearfix";
+        c1 = document.getElementsByClassName("columnTodo");
         
         c1.textContent = rows[i].c1;
 
@@ -95,9 +95,9 @@ RiseVision.Grocery = (function() {
           }
         }
 
-        rowEntry.innerHTML = "<ul class='individualRow'>" + "<li class='columnGrocery'>" + c1.textContent + "</li>" + "</ul>"
+        rowEntry.innerHTML = "<ul class='individualRow'>" + "<li class='columnTodo'>" + c1.textContent + "</li>" + "</ul>"
 
-        $groceryList.append(rowEntry);
+        $todoList.append(rowEntry);
 
         $( "li:contains('---')" ).css( "display", "none" );
       }
@@ -107,13 +107,13 @@ RiseVision.Grocery = (function() {
    *  Public Methods
    */
   function init() {
-    var googleSheetGrocery = document.getElementById("googleSheetGrocery");
-    googleSheetGrocery.addEventListener("rise-google-sheet-response", function(e) {
+    var googleSheetTodo = document.getElementById("googleSheetTodo");
+    googleSheetTodo.addEventListener("rise-google-sheet-response", function(e) {
       addList(e.detail.cells);
       displayList();
       // _getScrollEl();
     });
-    googleSheetGrocery.go();
+    googleSheetTodo.go();
   }
 // alert('test');
 

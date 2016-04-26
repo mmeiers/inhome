@@ -57,7 +57,7 @@ RiseVision.Directory = (function() {
   }
 
   /* Add each event to the events array. */
-  function addDirectory(cells) {
+  function addList(cells) {
     counter = 0;
     rows = [];
     var numCols = getNumColumns(cells),
@@ -71,8 +71,8 @@ RiseVision.Directory = (function() {
     }
   }
 
-  /* Display the Directory. */
-  function displayDirectory() {
+  /* Display the List. */
+  function displayList() {
 
     var rowEntry = null,
       c1 = null,
@@ -124,8 +124,8 @@ RiseVision.Directory = (function() {
   function init() {
     var googleSheet = document.getElementById("googleSheet");
     googleSheet.addEventListener("rise-google-sheet-response", function(e) {
-      addDirectory(e.detail.cells);
-      displayDirectory();
+      addList(e.detail.cells);
+      displayList();
       // _getScrollEl();
     });
     googleSheet.go();
