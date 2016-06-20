@@ -52,6 +52,8 @@ RiseVision.Directory = (function() {
     individualRow.c3 = getCell(++index, cells);
     individualRow.c4 = getCell(++index, cells);
     individualRow.c5 = getCell(++index, cells);
+    individualRow.c6 = getCell(++index, cells);
+    individualRow.c7 = getCell(++index, cells);
 
     return individualRow;
   }
@@ -80,6 +82,9 @@ RiseVision.Directory = (function() {
       c3 = null,
       c4 = null,
       c5 = null,
+      c6 = null,
+      c7 = null,
+        
       eventSlides = null,
       numEvents = rows.length;
 
@@ -94,11 +99,15 @@ RiseVision.Directory = (function() {
         c3 = document.getElementsByClassName("column3");
         c4 = document.getElementsByClassName("column4");
         c5 = document.getElementsByClassName("column5");
+        c6 = document.getElementsByClassName("column6");
+        c7 = document.getElementsByClassName("column7");
         c1.textContent = rows[i].c1;
         c2.textContent = rows[i].c2;
         c3.textContent = rows[i].c3;
         c4.textContent = rows[i].c4;
         c5.textContent = rows[i].c5;
+        c6.textContent = rows[i].c6;
+        c7.textContent = rows[i].c7;
         
         
         /* Details Card. */
@@ -108,9 +117,10 @@ RiseVision.Directory = (function() {
           }
         }
 
-        setCardAttributes(rowEntry,{"detailColumn1":c1.textContent,"detailColumn2":c2.textContent,"detailColumn3":c3.textContent,"detailColumn4":c4.textContent,"detailColumn5":c5.textContent});
+        //setCardAttributes(rowEntry,{"detailColumn1":c1.textContent,"detailColumn2":c2.textContent,"detailColumn3":c3.textContent,"detailColumn4":c4.textContent,"detailColumn5":c5.textContent});
 
-        rowEntry.innerHTML = "<ul class='individualRow'>" + "<li class = 'column1'>" + "<img src='"+ c1.textContent +"'>" + "</li>" + "<li class='column2'>" + c2.textContent + "</li>" + "<li class = 'column3'>" + c3.textContent + "</li>" + "<li class='column4'>"+ c4.textContent +"</li>"+ "</ul>"
+        rowEntry.innerHTML = "<div class='default-image'>"+"</div>" + "<div class='individualRow'>" + "<span class = 'column1'>" + c1.textContent + "</span>" + "<span class='column2'>" + c2.textContent + "</span>" + "<span class = 'column3'>" + c3.textContent + "</span>" + "<span class='column4'>"+ c4.textContent +" - </span>" + "<span class='column5'>"+ c5.textContent +"</span>" +
+        "</div>"
 
         $directoryList.append(rowEntry);
 

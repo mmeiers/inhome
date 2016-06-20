@@ -11,7 +11,7 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 /* VARIABLES */ 
 $white : #FFFFFF;
 $black: #000000;
-$grey: rgba(0, 0, 0, 0.1);
+$grey: #444444;
 // overview bg color, 
 $darkgrey: #302f34;
 //main icons
@@ -19,6 +19,10 @@ $lightgrey: #fefefe;
 $primary: #f5c13e;
 $secondary: #222222;
 $accent: #f5c13e;
+$yellow: #FCC04D;
+$blue: #00C3E2;
+$red: #FE626D;
+$ltyellow: #FBD997;
 $font-stack : 'Open Sans', Helvetica, sans-serif;
 $main-shadow : 5px 0 10px rgba(0,0,0,0.5);;
 
@@ -31,7 +35,7 @@ body {
 /* SPREADSHEET COMPONENT */
 #directory, #grocery, #todo {
   width:95vw;
-  height:60vh;
+  height:680px;
   overflow:hidden !important;
 }
 
@@ -39,36 +43,123 @@ body {
   color:white;
   font-weight: 600;
   width:95vw;
-  height:5vw;
+  height:0vw;
   z-index: 101;
 }
   
-.individualRow
-{
-  display: table;
-  float: left;
-}
-
-
-  
-.column1, .column2, .column3, .column4, .column5, .columnGrocery, .columnTodo, {
+ .columnGrocery, .columnTodo, {
   font-size:2vw;
   display: table-cell;
   vertical-align: middle;
   margin: 0 auto;
-  width: 20vw;
+  width: 15vw;
 }
+
+
+.default-image
+{
+  top:0;
+  opacity: .2;
+  width: 300px;
+  height: 300px;
+  z-index: 1;
+  background: url(http://mmeiers.github.io/badforbananas/img/portrait2.png);
+  background-size: 300px auto;
+  background-repeat: no-repeat;
+  filter: grayscale(100%);
+
+}
+
+.directory__row {
   
+  width: 300px;
+  height: 300px;
+background-color: $grey;
+  border-radius: 10px;
+  float:left;
+  list-style: none;
+  z-index: 2;
+  margin:20px;
+box-shadow: $main-shadow;
+}
 
-/*.directory__row:nth-child(odd) {
-  background-color:$grey;
-}*/
+.individualRow {
+  position: relative;
+  top:-300px;
+  padding: 20px;
+}
 
-.directory__row, .grocery__row, .todo__row, {
+
+  
+.individualRow{
+
+  .column1{
+    font-size:20px; 
+    font-weight:600;
+    color:$white;
+    text-transform: uppercase;
+    position: static;
+    top:20px;
+    left:20px;
+    
+    margin-bottom: -20px;
+    z-index: 2;
+  }
+  
+  .column2{
+    font-size:110px; 
+    line-height:90px; 
+    font-weight:600;
+    color:$ltyellow;
+    display: block;
+    margin-top:00px;
+  }
+  
+  .column3{
+    font-size:24px; 
+    line-height:28px; 
+    font-weight:200;
+    color:$white;
+    text-transform: uppercase;
+    display: block;
+    margin-top:30px;
+  }
+  
+  .column4{
+    font-size:20px; 
+    font-weight:600;
+    color:$ltyellow;
+    text-transform: uppercase;
+    position: static;
+    top:20px;
+    left:20px;
+  }
+  
+  .column5{
+    font-size:20px; 
+    font-weight:600;
+    color:$ltyellow;
+    text-transform: uppercase;
+    position: static;
+    top:20px;
+    left:20px;
+  }
+  .column6{
+    font-size:20px; 
+    font-weight:600;
+    color:pink;
+    text-transform: uppercase;
+    position: static;
+    top:20px;
+    left:20px;
+  }
+}
+
+.grocery__row, .todo__row, {
   border-bottom: 1px $white solid;
 } 
 
-.directory__head , .directory__row, .grocery__row {
+.directory__head, .grocery__row {
 
   .column1 {
     width: 10vw;  
@@ -286,14 +377,40 @@ p {
 		line-height: 1.8;
 		font-size: 48px;
 		cursor: pointer;
-		border: 2px solid transparent;
+		border: 2px solid;
 		transition: .3s ease;
-		
+
 		&.active{
-			color: white;
-			border-color: white;
+			background-color: white;
 		}
 	}
+  
+  .calendar {
+    border-color: $yellow;
+    &.active{
+      background-color: $yellow;
+    } 
+  }
+  
+  .grocery {
+    border-color: $blue;
+    &.active{
+      background-color: $blue;
+    } 
+  }
+  .todo {
+    border-color: $red;
+    &.active{
+      background-color: $red;
+    } 
+  }
+  
+  .material-icons { 
+    font-size: 48px;
+    line-height: 2em;
+  }
+  
+  
 	.card-content{
 		position: absolute;
 		width: 100%;
@@ -321,17 +438,24 @@ p {
 			
 			h2{
 				font-weight: 300;
-				font-size: 7em;
+				font-size: 100px;
 				line-height: 1;
-				margin: 0 0 30px;
+				margin: -40px 0 0px;
+            
                 color: $lightgrey;
                 text-transform:uppercase;
 				strong{
 					font-weight: 700;
 				}
+              
+              
 			}
 			
-			
+			h4 {
+                font-size:30px;
+              text-transform:uppercase;
+              
+              }
 			
 			&.left{
 				transform: translate3d(0,0, 0);
@@ -352,7 +476,7 @@ p {
 	#overview{
 		.card-toggle{
 			position: absolute;
-			top: 30px;
+			top: 950px;
 			right: 30px;
 			opacity:1;
 			color: white;
@@ -374,18 +498,19 @@ p {
 		}
 	}
 	
-	#dribbble, #behance, #linkedin, #twitter{
+	#calendar, #grocery, #linkedin, #twitter{
 		.card-content{
 			color: white;
+          
 			
 			p{
 				color: rgba(255,255,255,.8);
 			}
 		}
 	}
-	#dribbble{ 
+	#calendar{ 
 		.card-content{ 
-			background-color: $primary;
+			background-color: $grey;
 			-webkit-clip-path: circle(0% at 76px 88%);
 			clip-path: circle(0% at 50px 88%);
 	
@@ -397,19 +522,20 @@ p {
 	}
 	#behance {
 		.card-content{ 
-			background-color: $secondary;
+			background-color: $grey;
 			-webkit-clip-path: circle(0% at 150px 88%);
 			clip-path: circle(0% at 150px 88%);
-	
+
 		}
 		&.active .card-content{
 			-webkit-clip-path: circle(270% at 150px 88%);
 			clip-path: circle(270% at 150px 88%);
+
 		}
 	}
 	#linkedin {
 		.card-content{ 
-			background-color: $accent;
+			background-color: $grey;
 			-webkit-clip-path: circle(0% at 220px 88%);
 			clip-path: circle(0% at 220px 88%);
 	
@@ -421,7 +547,7 @@ p {
 	}
 	#twitter {
 		.card-content{ 
-			background-color: $darkgrey;
+			background-color: $grey;
 			-webkit-clip-path: circle(0% at 292px 88%);
 			clip-path: circle(0% at 292px 88%);
 	

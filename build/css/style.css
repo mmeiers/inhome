@@ -138,49 +138,125 @@ body {
 /* SPREADSHEET COMPONENT */
 #directory, #grocery, #todo {
   width: 95vw;
-  height: 60vh;
+  height: 680px;
   overflow: hidden !important; }
 
 .directory__head {
   color: white;
   font-weight: 600;
   width: 95vw;
-  height: 5vw;
+  height: 0vw;
   z-index: 101; }
 
-.individualRow {
-  display: table;
-  float: left; }
-
-.column1, .column2, .column3, .column4, .column5, .columnGrocery, .columnTodo {
+.columnGrocery, .columnTodo {
   font-size: 2vw;
   display: table-cell;
   vertical-align: middle;
   margin: 0 auto;
-  width: 20vw; }
+  width: 15vw; }
 
-/*.directory__row:nth-child(odd) {
-  background-color:$grey;
-}*/
-.directory__row, .grocery__row, .todo__row {
+.default-image {
+  top: 0;
+  opacity: .2;
+  width: 300px;
+  height: 300px;
+  z-index: 1;
+  background: url(http://mmeiers.github.io/badforbananas/img/portrait2.png);
+  background-size: 300px auto;
+  background-repeat: no-repeat;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%); }
+
+.directory__row {
+  width: 300px;
+  height: 300px;
+  background-color: #444444;
+  border-radius: 10px;
+  float: left;
+  list-style: none;
+  z-index: 2;
+  margin: 20px;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5); }
+
+.individualRow {
+  position: relative;
+  top: -300px;
+  padding: 20px; }
+
+.individualRow .column1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  position: static;
+  top: 20px;
+  left: 20px;
+  margin-bottom: -20px;
+  z-index: 2; }
+
+.individualRow .column2 {
+  font-size: 110px;
+  line-height: 90px;
+  font-weight: 600;
+  color: #FBD997;
+  display: block;
+  margin-top: 00px; }
+
+.individualRow .column3 {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 200;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 30px; }
+
+.individualRow .column4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #FBD997;
+  text-transform: uppercase;
+  position: static;
+  top: 20px;
+  left: 20px; }
+
+.individualRow .column5 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #FBD997;
+  text-transform: uppercase;
+  position: static;
+  top: 20px;
+  left: 20px; }
+
+.individualRow .column6 {
+  font-size: 20px;
+  font-weight: 600;
+  color: pink;
+  text-transform: uppercase;
+  position: static;
+  top: 20px;
+  left: 20px; }
+
+.grocery__row, .todo__row {
   border-bottom: 1px #FFFFFF solid; }
 
-.directory__head .column1, .directory__row .column1, .grocery__row .column1 {
+.directory__head .column1, .grocery__row .column1 {
   width: 10vw; }
 
-.directory__head .column2, .directory__row .column2, .grocery__row .column2 {
+.directory__head .column2, .grocery__row .column2 {
   width: 30vw; }
 
-.directory__head .column3, .directory__row .column3, .grocery__row .column3 {
+.directory__head .column3, .grocery__row .column3 {
   width: 30vw; }
 
-.directory__head .column4, .directory__row .column4, .grocery__row .column4 {
+.directory__head .column4, .grocery__row .column4 {
   width: 30vw; }
 
-.directory__head .column5, .directory__row .column5, .grocery__row .column5 {
+.directory__head .column5, .grocery__row .column5 {
   width: 10vw; }
 
-.directory__head img, .directory__row img, .grocery__row img {
+.directory__head img, .grocery__row img {
   height: 8vw;
   margin-top: .7vw;
   width: 8vw;
@@ -344,12 +420,26 @@ p {
     line-height: 1.8;
     font-size: 48px;
     cursor: pointer;
-    border: 2px solid transparent;
+    border: 2px solid;
     -webkit-transition: .3s ease;
     transition: .3s ease; }
     .cards .card-toggle.active {
-      color: white;
-      border-color: white; }
+      background-color: white; }
+  .cards .calendar {
+    border-color: #FCC04D; }
+    .cards .calendar.active {
+      background-color: #FCC04D; }
+  .cards .grocery {
+    border-color: #00C3E2; }
+    .cards .grocery.active {
+      background-color: #00C3E2; }
+  .cards .todo {
+    border-color: #FE626D; }
+    .cards .todo.active {
+      background-color: #FE626D; }
+  .cards .material-icons {
+    font-size: 48px;
+    line-height: 2em; }
   .cards .card-content {
     position: absolute;
     width: 100%;
@@ -375,13 +465,16 @@ p {
       color: #fefefe; }
       .cards .card-content .col h2 {
         font-weight: 300;
-        font-size: 7em;
+        font-size: 100px;
         line-height: 1;
-        margin: 0 0 30px;
+        margin: -40px 0 0px;
         color: #fefefe;
         text-transform: uppercase; }
         .cards .card-content .col h2 strong {
           font-weight: 700; }
+      .cards .card-content .col h4 {
+        font-size: 30px;
+        text-transform: uppercase; }
       .cards .card-content .col.left {
         -webkit-transform: translate3d(0, 0, 0);
                 transform: translate3d(0, 0, 0);
@@ -398,7 +491,7 @@ p {
     opacity: 1; }
   .cards #overview .card-toggle {
     position: absolute;
-    top: 30px;
+    top: 950px;
     right: 30px;
     opacity: 1;
     color: white; }
@@ -412,33 +505,33 @@ p {
   .cards #overview .right {
     background: url(https://dl.dropboxusercontent.com/u/26808427/cdn/james.png) no-repeat bottom right;
     background-size: contain; }
-  .cards #dribbble .card-content, .cards #behance .card-content, .cards #linkedin .card-content, .cards #twitter .card-content {
+  .cards #calendar .card-content, .cards #grocery .card-content, .cards #linkedin .card-content, .cards #twitter .card-content {
     color: white; }
-    .cards #dribbble .card-content p, .cards #behance .card-content p, .cards #linkedin .card-content p, .cards #twitter .card-content p {
+    .cards #calendar .card-content p, .cards #grocery .card-content p, .cards #linkedin .card-content p, .cards #twitter .card-content p {
       color: rgba(255, 255, 255, 0.8); }
-  .cards #dribbble .card-content {
-    background-color: #f5c13e;
+  .cards #calendar .card-content {
+    background-color: #444444;
     -webkit-clip-path: circle(0% at 76px 88%);
     clip-path: circle(0% at 50px 88%); }
-  .cards #dribbble.active .card-content {
+  .cards #calendar.active .card-content {
     -webkit-clip-path: circle(270% at 76px 88%);
     clip-path: circle(270% at 50px 88%); }
   .cards #behance .card-content {
-    background-color: #222222;
+    background-color: #444444;
     -webkit-clip-path: circle(0% at 150px 88%);
     clip-path: circle(0% at 150px 88%); }
   .cards #behance.active .card-content {
     -webkit-clip-path: circle(270% at 150px 88%);
     clip-path: circle(270% at 150px 88%); }
   .cards #linkedin .card-content {
-    background-color: #f5c13e;
+    background-color: #444444;
     -webkit-clip-path: circle(0% at 220px 88%);
     clip-path: circle(0% at 220px 88%); }
   .cards #linkedin.active .card-content {
     -webkit-clip-path: circle(270% at 220px 88%);
     clip-path: circle(270% at 220px 88%); }
   .cards #twitter .card-content {
-    background-color: #302f34;
+    background-color: #444444;
     -webkit-clip-path: circle(0% at 292px 88%);
     clip-path: circle(0% at 292px 88%); }
   .cards #twitter.active .card-content {
