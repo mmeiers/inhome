@@ -7,7 +7,8 @@
 
 $(function(){
 
-var $scrollDirectory = $("#directory");
+var $scrollDirectory = $(".swipe");
+
 
     $scrollDirectory.autoScroll({
           "by": "continuous",

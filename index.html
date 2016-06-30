@@ -30,10 +30,8 @@
     
 
     <div class="cards">
-	
-	
 	 <div class="card active" id="overview">
-		<a class="card-toggle"><i class="material-icons">arrow_back</i></a>
+       <a class="card-toggle"><i class="material-icons back">arrow_back</i></a>
 		<div class="card-content">
 			<div class="row">
 				<div class="left col">
@@ -61,6 +59,8 @@
 				</div>
 				
 			</div>
+
+          
 		</div>
 	</div> 
 	
@@ -71,6 +71,9 @@
 			<div class="row">
 				<div class="left col">
 					<h4>Meiers Family</h4><h2>Calendar</h2>
+                    <!--<div class="calendar-filter"><span>Sort By Date</span><i class="material-icons">sort</i></div>
+                  <div class="calendar-filter">Sort By Title<i class="material-icons">sort_by_alpha</i></div>-->
+					
 					
                       <!-- Sheets Component -->
                       <rise-google-sheet
@@ -87,7 +90,7 @@
                             
                           </ul>
                         </div>
-                      <div id="directory">
+                      <div class="swipe">
 
                       <div class="page">
                       <!-- Sheets Data -->
@@ -141,15 +144,14 @@
           return-empty="true"></rise-google-sheet>
                       
                   
-					 <div id="grocery">
-
+					 <div class="swipe">
                       <div class="page">
                       <!-- Sheets Data -->
 
                         <div class="grocery__list">
                         </div>
                       </div>
-                      </div>
+                       </div>
 				</div>
 			</div>
 		</div>
@@ -173,7 +175,7 @@
           return-empty="true"></rise-google-sheet>
                       
                   
-					 <div id="todo">
+					 <div class="swipe">
 
                       <div class="page">
                       <!-- Sheets Data -->
