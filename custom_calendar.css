@@ -1,7 +1,25 @@
-.dp-cur, .chip dt, .te, .te-t, .te-rev-s, .rb-n, .rb-i, .agenda, .event-title{
-white-space:normal !important;
+.dp-cur, .chip dt, .te, .te-t, .te-rev-s, .rb-n, .rb-i, .agenda, 
+
+.calendar-container {
   font-size:20px;
+  line-height:24px;
+  font-family :'Raleway', sans-serif;
+  white-space:normal !important;
+  color:blue;
+}
+.event-title {
+  color:blue;
 }
 .view-cap, .view-container-border { background-color:black; }
 .mv-daynames-table { color:white; background:black; }
 .mv-event-container { border-top:1px solid black; }
+
+.st-dtitle {
+  font-size:30px;
+  line-height: 36px;
+  
+}
+
+.st-dtitle-fc {
+  
+}
