@@ -1,0 +1,7 @@
+.dp-cur, .chip dt, .te, .te-t, .te-rev-s, .rb-n, .rb-i, .agenda, .event-title{
+white-space:normal !important;
+  font-size:20px;
+}
+.view-cap, .view-container-border { background-color:black; }
+.mv-daynames-table { color:white; background:black; }
+.mv-event-container { border-top:1px solid black; }
