@@ -2,24 +2,109 @@
 
 .calendar-container {
   font-size:20px;
-  line-height:24px;
+  line-height:30px;
   font-family :'Raleway', sans-serif;
   white-space:normal !important;
-  color:blue;
-}
-.event-title {
-  color:blue;
-}
-.view-cap, .view-container-border { background-color:black; }
-.mv-daynames-table { color:white; background:black; }
-.mv-event-container { border-top:1px solid black; }
+  background: none;
 
+}
+
+
+/** HEADER AREA**/
+
+.header {
+  background:#302f34;
+}
+
+.date-top, .today-button {
+  color:white;
+  font-size: 36px;
+  font-weight: 300;
+}
+
+.arrowImg {
+  
+display:none;
+}
+
+/** week, month, agenda tabs **/
+.ui-rtsr-unselected {
+  display:none;
+}
+.ui-rtsr-selected {
+  display: none;
+}
+
+/** DAY OF THE WEEK SUB HEADER**?
+/** day container **/
+.mv-container{
+line-height: 0;
+  z-index: 99;
+  margin-top:40px;
+}
+.mv-dayname {
+  color:white;
+  font-size: 20px;
+  margin-top:-50px;
+  
+}
+/** day **/
+.mv-daynames-table { 
+height:40x;  
+  background: #444444;
+}
+.mv-event-container { border:none }
+
+
+.st-c {
+  padding-left:10px;
+}
+/** event title **/
+.te-s{
+  color:white;
+}
+
+/** event time **/
+.te-t{
+  color:#FCC04D;
+  
+}
+.view-cap, 
+
+/** border aroudn entire calendar**/
+.view-container-border { 
+  background-color:#444444; 
+}
+
+.footer {
+  display: none;
+}
+
+
+
+/** date **/
 .st-dtitle {
   font-size:30px;
-  line-height: 36px;
+  line-height: 30px;
+  background-color: none;
+  border:none;
+  background-color:#444444; 
+  color:#FBD997;
+  text-align: left;
+  padding: 10px 0 0 10px;
+}
+
+/** day square **/
+.st-bg { 
+  background:#444444; 
+}
+.st-bg-today { 
+  background:#555555; 
+border: none; 
+}
+.st-dtitle-today { 
+  background: #555555;
   
 }
 
-.st-dtitle-fc {
-  
-}
+.st-bg { border:none; }
