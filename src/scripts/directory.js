@@ -117,7 +117,7 @@ RiseVision.Directory = (function() {
           }
         }
 
-        //setCardAttributes(rowEntry,{"detailColumn1":c1.textContent,"detailColumn2":c2.textContent,"detailColumn3":c3.textContent,"detailColumn4":c4.textContent,"detailColumn5":c5.textContent});
+        setCardAttributes(rowEntry,{"detailColumn1":c1.textContent,"detailColumn2":c2.textContent,"detailColumn3":c3.textContent,"detailColumn4":c4.textContent,"detailColumn5":c5.textContent});
 
         rowEntry.innerHTML = "<div class='default-image'>"+"</div>" + "<div class='individualRow'>" + "<span class = 'column1'>" + c1.textContent + "</span>" + "<span class='column2'>" + c2.textContent + "</span>" + "<span class = 'column3'>" + c3.textContent + "</span>" + "<span class='column4'>"+ c4.textContent +" - </span>" + "<span class='column5'>"+ c5.textContent +"</span>" +
         "</div>"
