@@ -653,7 +653,7 @@ html {
   padding: 0; }
 
 .kenburn-slider .flex-direction-nav .flex-prev, .kenburn-slider .flex-direction-nav .flex-next {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: white;
   color: transparent;
   padding: 10px 20px;
   text-decoration: none;
@@ -662,7 +662,6 @@ html {
   top: 0;
   bottom: 0;
   margin: auto;
-  z-index: 0;
   text-align: center; }
 
 .kenburn-slider .flex-direction-nav .flex-prev {

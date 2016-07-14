@@ -107,4 +107,29 @@ border: none;
   
 }
 
+.rb-n {
+  color:#302f34;
+  background-color:#FCC04D !important;
+}
+
 .st-bg { border:none; }
+
+#navBack1 {
+
+  background: url(/build/img/chevron-left.png) no-repeat bottom left;
+  background-size: contain;
+  margin-left:10px;
+  height: 24px;
+  width:24px;
+  border:none;
+}
+
+
+#navForward1 {
+
+  background: url(/build/img/chevron-right.png) no-repeat bottom right;
+  background-size: contain;
+   height: 24px;
+  width:24px;
+  border:none;
+}
