@@ -1,12 +1,16 @@
-    // v3.1.0
+// v3.1.0
 //Docs at http://simpleweatherjs.com
-$(document).ready(function() {
+
+$(document).ready(function() {  
+  getWeather(); //Get the initial weather.
+  setInterval(getWeather, 600000); //Update the weather every 10 minutes.
+});
+
+function getWeather() {
   $.simpleWeather({
-    location: 'Lawrence, KS',
-    woeid: '',
+    location: '02135',
     unit: 'f',
     success: function(weather) {
-      
       //html = '<ul><li>'+weather.city+', '+weather.region+'</li>';
       html = '<li class="currently">'+weather.currently+'</li>';
       html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
@@ -18,4 +22,4 @@ $(document).ready(function() {
       $("#weather").html('<p>'+error+'</p>');
     }
   });
-});
+}
