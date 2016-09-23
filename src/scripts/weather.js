@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 function getWeather() {
   $.simpleWeather({
-    location: '02135',
+    location: '66047',
     unit: 'f',
     success: function(weather) {
       //html = '<ul><li>'+weather.city+', '+weather.region+'</li>';
