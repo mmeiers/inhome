@@ -3,31 +3,85 @@
   <head>
     <meta charset="UTF-8">
     <title>Material VCard</title>
-    
-    
+
+
 
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
-    
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
       <link rel="stylesheet" href="build/css/style.css">
-    
-    <!-- Bower Dependencies -->
-  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-  <link rel="import" href="bower_components/rise-google-sheet/rise-google-sheet.html">
+
+<link href='build/css/fullcalendar.css' rel='stylesheet' />
+
+<!--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
+
+<!-- start calendar Dependencies -->
+  <script src='build/scripts/moment.min.js'></script>
+<script src='build/scripts/jquery.min.js'></script>
+<script src='build/scripts/fullcalendar.js'></script>
+<script src='build/scripts/gcal.js'></script>
+<script>
+
+  $(document).ready(function() {
+
+    $('#googleCalendar').fullCalendar({
+
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,listYear'
+      },
+
+      displayEventTime: true, // don't show the time column in list view
+
+      // THIS KEY WON'T WORK IN PRODUCTION!!!
+      // To make your own Google API key, follow the directions here:
+      // http://fullcalendar.io/docs/google_calendar/
+      googleCalendarApiKey: 'AIzaSyBKDdIInVRvt8nlOi94pF20ZcqMmNfTyrI',
+
+      // US Holidays
+      events: 'idi66t6g9603v6g412rqs6k6ko@group.calendar.google.com',
+
+      eventClick: function(event) {
+        // opens events in a popup window
+        window.open(event.url, 'gcalevent', 'width=700,height=600');
+        return false;
+      },
+
+      loading: function(bool) {
+        $('#loading').toggle(bool);
+      }
+
+    });
+
+  });
+
+</script>
+<style>
+  #googleCalendar {
+    position: absolute;
+    top:20px;
+    left:400px;
+    height: 600px !important;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+</style>
 
 
 
-    
-    
-    
+
+
+
   </head>
 
   <body>
-    
-    
-    
+
+
+
 
     <div class="cards">
 	 <div class="card active" id="overview">
@@ -36,7 +90,8 @@
 			<div class="row">
 				<div class="left col">
                   <h4>Meiers Family</h4><h2>Mabel, Mat &amp; Sarah</h2>
-                  
+
+
                   <div class="kenburn-slider">
                     <ul class="slides">
                       <li>
@@ -55,107 +110,43 @@
                         <div data-bg="build/img/5.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="bottom left" class="slide-image"></div>
                       </li>
                     </ul>
-                  </div>					
+                  </div>
 				</div>
-				
+
 			</div>
 <!-- Docs at http://http://simpleweatherjs.com -->
 <div id="weather"></div>
-   
 
-          
+
+
 		</div>
-	</div> 
-	
+	</div>
+
 
 	<div class="card" id="calendar">
 		<a class="card-toggle calendar"><i class="material-icons">event</i></a>
 		<div class="card-content">
 			<div class="row">
 				<div class="left col">
-					<h4>Meiers Family</h4><!--<h2>Calendar</h2>-->
-                    <!--<div class="calendar-filter"><span>Sort By Date</span><i class="material-icons">sort</i></div>
-                  <div class="calendar-filter">Sort By Title<i class="material-icons">sort_by_alpha</i></div>-->
-					
-					
-                      <!-- Sheets Component -->
-                      <rise-google-sheet
-                        id="googleSheet"
-                        key="1Yzb1gIG1dj2_te1Jvh4wJRdofUCmNfZretDjQ8nWUas"
-                        min-row="1"
-                        tab-id="3"
-                        refresh="3000">
-                      </rise-google-sheet>
+					<!--<h4>Meiers Family</h4><h2>Calendar</h2>-->
 
-                      <!-- Directory List View-->
-                      <div class="directory__head">
-                          <ul class="individualRow">
-                            
-                          </ul>
-                        </div>
-                      <div class="swipe">
+<div id='loading'>loading...</div>
 
-                      <div class="page">
-                      <!-- Sheets Data -->
+  <div id='googleCalendar'></div>
 
-                        <!--<div class="directory__list">
-                        </div>-->
-                        <iframe src="mabel-mat-sarah.html" style="border: 0;background-color:none;" width="1800" height="760" frameborder="0" scrolling="no"></iframe>
-                      </div>
-                      </div>
-
-                      <!-- Details Card View-->
-                      <div class="wrapper">
-                        <div class="overlay">
-                          <div class="details">
-
-                            <h3 class="detail__column2"></h3>
-                            <img class="detail__column1" src="" alt="">
-                            <p class="detail__column3"></p>
-                            <p class="detail__column4"></p>
-                            <p class="detail__column5"></p>
-                            <p class="detail__column6"></p>
-                            <div class="button__close">
-                              <div class="line1"></div>
-                              <div class="line2"></div>
-                            </div>
-                          </div> <!--.card-->
-                        </div><!--.overlay-->
-                      </div><!--.wrapper-->
-					
 				</div>
-				
+
 			</div>
 		</div>
-	</div> 
-	
+	</div>
+
 	<div class="card" id="behance">
 		<a class="card-toggle grocery"><i class="material-icons">shopping_cart</i></a>
 		<div class="card-content">
 			<div class="row">
 				<div class="left col">
 					<h4>Meiers Family</h4><h2>Grocery List</h2>
-                  
-                  <!-- Sheets Component -->
-                  
-                  <rise-google-sheet
-          id="googleSheetGrocery"
-          key="1Yzb1gIG1dj2_te1Jvh4wJRdofUCmNfZretDjQ8nWUas"
-          tab-id="4"
-          min-row="1"
-          max-column="1"
-          refresh="36000"
-          return-empty="true"></rise-google-sheet>
-                      
-                  
-					 <div class="swipe">
-                      <div class="page">
-                      <!-- Sheets Data -->
 
-                        <div class="grocery__list">
-                        </div>
-                      </div>
-                       </div>
 				</div>
 			</div>
 		</div>
@@ -166,55 +157,25 @@
 			<div class="row">
 				<div class="left col">
 					<h4>Meiers Family</h4><h2>To Do List</h2>
-				
-					  <!-- Sheets Component -->
-                  
-                  <rise-google-sheet
-          id="googleSheetTodo"
-          key="1Yzb1gIG1dj2_te1Jvh4wJRdofUCmNfZretDjQ8nWUas"
-          tab-id="5"
-          min-row="1"
-          max-column="1"
-          refresh="36000"
-          return-empty="true"></rise-google-sheet>
-                      
-                  
-					 <div class="swipe">
-
-                      <div class="page">
-                      <!-- Sheets Data -->
-
-                        <div class="todo__list">
-                        </div>
-                      </div>
-                      </div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-</div>
-    
-    
-    
-    
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/jquery.flexslider-min.js'></script>
-    
-    <!-- Dependencies for the auto-scroll plugin -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenLite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/plugins/CSSPlugin.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/utils/Draggable.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/plugins/ScrollToPlugin.min.js"></script>
 
-<!-- Club GreenSock Members Only Plugin, subject to its own license: http://greensock.com/club/ -->
-<script src="https://s3.amazonaws.com/rise-common/scripts/greensock/1.18.0/ThrowPropsPlugin.min.js"></script>
+</div>
+
+
+
+
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/jquery.flexslider-min.js'></script>
+
 
 <!-- Main JS -->
 <script src="build/scripts/all.min.js"></script>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js'></script>
 
-    
+
   </body>
 </html>

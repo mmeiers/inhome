@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='build/css/fullcalendar.css' rel='stylesheet' />
+<!--<link href='build/css/fullcalendar.print.css' rel='stylesheet' media='print' />-->
+<script src='build/scripts/moment.min.js'></script>
+<script src='build/scripts/jquery.min.js'></script>
+<script src='build/scripts/fullcalendar.js'></script>
+<script src='build/scripts/gcal.js'></script>
+<script>
+
+	$(document).ready(function() {
+
+		$('#calendar').fullCalendar({
+
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,listYear'
+			},
+
+			displayEventTime: true, // don't show the time column in list view
+
+			// THIS KEY WON'T WORK IN PRODUCTION!!!
+			// To make your own Google API key, follow the directions here:
+			// http://fullcalendar.io/docs/google_calendar/
+			googleCalendarApiKey: 'AIzaSyBKDdIInVRvt8nlOi94pF20ZcqMmNfTyrI',
+
+			// US Holidays
+			events: 'idi66t6g9603v6g412rqs6k6ko@group.calendar.google.com',
+
+			eventClick: function(event) {
+				// opens events in a popup window
+				window.open(event.url, 'gcalevent', 'width=700,height=600');
+				return false;
+			},
+
+			loading: function(bool) {
+				$('#loading').toggle(bool);
+			}
+
+		});
+
+	});
+
+</script>
+<style>
+	#calendar {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+</style>
+</head>
+<body>
+
+	<div id='loading'>loading...</div>
+
+	<div id='calendar'></div>
+
+</body>
+</html>
