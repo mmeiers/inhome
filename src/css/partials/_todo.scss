@@ -1,0 +1,137 @@
+$dark-gray: #455a64;
+$light-gray: #90a4ae;
+$white: #eceff1;
+$red: #ff5252;
+$green: #69f0ae;
+$white-border: 1px solid $white;
+
+.left-container {
+  position:absolute;
+  top:200px;
+  left:50px;
+  //background-color:yellow;
+  height: 800px;
+}
+.right-container {
+  position:absolute;
+  top:200px;
+  left:1200px;
+  width:700px;
+  height: 800px;
+}
+
+.container {
+  position:absolute;
+  top:0;
+  left:0;
+  z-index: 9999;
+  margin: 0 auto;
+  width: 95%;
+}
+
+input {
+  background: transparent;
+  border: none {
+    bottom: $white-border;
+  }
+  font-size: 24px;
+  height: 50px;
+  padding-bottom: 15px;
+  &:focus {
+    outline: 0;
+  }
+  @media (min-width: 900px) {
+    font-size: 32px;
+  }
+}
+
+.input-buttons {
+  height: 50px;
+  border-bottom: $white-border;
+  padding: 0;
+  i {
+    padding: 0 12px;
+    color: $white;
+    float: right;
+  }
+  .fa-plus {
+    border-right: $white-border;
+  }
+  @media (min-width: 600px) {
+    .fa-trash-o:hover {
+      color: $red;
+    }
+    .fa-plus:hover {
+      color: #69f0ae;
+    }
+  }
+}
+
+.error {
+  color: $red;
+  display: none;
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: center;
+  .fa-times{
+    color: $white;
+    padding: 5px 15px;
+    float: right;
+    &:hover {
+      color: #fafafa;
+    }
+  }
+  p {
+    margin: 20px 0;
+    @media (min-width: 600px ){
+      font-size: 20px;
+    }
+  }
+}
+
+.todo-list{
+  padding: 0;
+  margin: 20px 0 50px;
+  .todo {
+    background: $white;
+    border-bottom: 1px dotted $dark-gray;
+    color: $dark-gray;
+    font-size: 20px;
+    list-style: none;
+    padding: 20px 130px 20px 15px;
+    position: relative;
+    white-space: normal;
+  }
+}
+
+.item {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  a {
+    color: $dark-gray;
+  }
+  i{
+    padding: 10px 15px;
+  }
+  .fa-check {
+    border-right: 1px solid $dark-gray;
+    &:hover {
+      color: $green;
+    }
+  }
+  .fa-trash-o:hover {
+    color: $red;
+  }
+}
+
+.complete {
+  color: $light-gray;
+  text-decoration: line-through;
+  .check {
+    color: $green;
+  }
+}
+
+
+

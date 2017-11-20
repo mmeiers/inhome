@@ -11,6 +11,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
+        <!-- Google Fonts : Lato -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Lato:300|Oswald' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
       <link rel="stylesheet" href="build/css/style.css">
 
 <link href='build/css/fullcalendar.css' rel='stylesheet' />
@@ -22,6 +28,7 @@
 <script src='build/scripts/jquery.min.js'></script>
 <script src='build/scripts/fullcalendar.js'></script>
 <script src='build/scripts/gcal.js'></script>
+
 <script>
 
   $(document).ready(function() {
@@ -70,11 +77,6 @@
   }
 
 </style>
-
-
-
-
-
 
   </head>
 
@@ -149,9 +151,11 @@
 	<div class="card" id="behance">
 		<a class="card-toggle grocery"><i class="material-icons">shopping_cart</i></a>
 		<div class="card-content">
+
 			<div class="row">
 				<div class="left col">
 					<h4>Meiers Family</h4><h2>Grocery List</h2>
+
 
 				</div>
 			</div>
@@ -163,8 +167,39 @@
 			<div class="row">
 				<div class="left col">
 					<h4>Meiers Family</h4><h2>To Do List</h2>
+<div class="left-container">
+          <!--TO DO LIST-->
+<div class="container">
+    <div class="input-buttons">
+      <input type="text" class="col-xs-8 col-sm-9">
+      <a href="#" class="clear-text"><i class="fa fa-trash-o fa-2x"></i></a>
+      <a href="#" class="add-todo"><i class="fa fa-plus fa-2x"></i></a>
+    </div> <!-- div.input-buttons-->
+    <div class="error">
+      <a href="#"><i class="fa fa-times"></i></a>
+      <p>We both know you should be doing something right now. Please enter a task.</p>
+    </div> <!-- div.error -->
+    <!-- Start to-do list -->
+
+</div> <!-- div.container -->
+
+<!--KEYBOARD-->
+    <!-- create an element with the ID of keyboard for the JS to target -->
+    <div id="keyboard">
+      <!-- Keyboard will be appended here -->
+    </div>
+    </div><!--end left container-->
+    <div class="right-container">
+      <ul class="todo-list col-xs-12">
+      </ul>
+    </div><!--end right container-->
 				</div>
+
+
+
 			</div>
+
+
 		</div>
 	</div>
 
@@ -172,7 +207,7 @@
 
 
 
-
+<script src='build/scripts/keyboard.js'></script>
 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/jquery.flexslider-min.js'></script>
 

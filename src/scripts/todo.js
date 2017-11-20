@@ -1,124 +1,74 @@
-var RiseVision = RiseVision || {};
-RiseVision.Todo = {};
+$(function(){
 
-RiseVision.Todo = (function() {
-  "use strict";
+  // Input gains focus on document ready
+  //$('input').focus();
 
-  var rows = [];
-  var counter = 0;
-  var $mainContainer = $("#main-container")
-  var $todoList = $(".todo__list")
+  // Define function to add tasks to list
+  function addTodo(){
+    if($('input').val().trim() == "") {
+      // Show error message
+      $('.error').fadeIn(200);
+      } else {
+      // Hide error message
+      $('.error').hide();
 
-  /*
-   *  Private Methods
-   */
+      // Get input value
+      var $todo = $('input').val();
 
-  /* Return total number of columns in data. */
-  function getNumColumns(cells) {
-    var len = cells.length,
-      currentRow = 0,
-      previousRow = 0,
-      totalCols = 0;
+      // Create new list item
+      var $newListItem = $('<li class="todo">' + $todo + '<span class="item">' +
+      '<a href="#" class="check">' + '<i class="fa fa-check fa-lg"></i>' + '</a>' +
+      '<a href="#" class="delete-todo">' + '<i class="fa fa-trash-o fa-lg"></i>' + '</a>' +
+      '</span>' + '</li>');
 
-    for (var i = 0; i <= len; i++) {
-      currentRow = parseInt(cells[i].gs$cell.row, 10);
+      // Add list item to end of list
+      var $addListItem = $('.todo-list').append($newListItem);
 
-      if (i === 0) {
-        previousRow = currentRow;
-      }
+      // Hide list item before fading it into view
+      $newListItem.hide().fadeIn(500);
 
-      if (currentRow === previousRow) {
-        totalCols++;
-      }
-      else {
-        break;
-      }
+      // Refocus input box for next task
+      $('input').val("").focus();
     }
-
-    return totalCols;
-  }
-
-  /* Return a single cell of data. */
-  function getCell(index, cells) {
-    return cells[index] ? cells[index].gs$cell.$t : "";
-  }
-
-  /* Return an individual event as an object. */
-  function getRow(index, numCols, cells) {
-    var individualRow = {};
-
-    individualRow.c1 = getCell(index, cells);
-
-    return individualRow;
-  }
-
-  /* Add each event to the events array. */
-  function addList(cells) {
-    counter = 0;
-    rows = [];
-    var numCols = getNumColumns(cells),
-      len = cells.length,
-      individualRow;
-
-    // Skip header and start at first cell of data.
-    for (var i = numCols; i < len; i += numCols) {
-      individualRow = getRow(i, numCols, cells);
-      rows.push(individualRow);
-    }
-  }
-
-  /* Display the List. */
-  function displayList() {
-
-    var rowEntry = null,
-      c1 = null,
-
-      eventSlides = null,
-      numEvents = rows.length;
-
-        $todoList.empty();
-
-      for (var i = 0; i < numEvents; i++) {
-
-        rowEntry = document.createElement("div");
-        rowEntry.className = "todo__row clearfix";
-        c1 = document.getElementsByClassName("columnTodo");
-        
-        c1.textContent = rows[i].c1;
-
-        
-        
-        /* Details Card. */
-        function setCardAttributes(el, attrs) {
-          for(var key in attrs) {
-            el.setAttribute(key, attrs[key]);
-          }
-        }
-
-        rowEntry.innerHTML = "<ul class='individualRow'>" + "<li class='columnTodo'>" + c1.textContent + "</li>" + "</ul>"
-
-        $todoList.append(rowEntry);
-
-        $( "li:contains('---')" ).css( "display", "none" );
-      }
-    }
-
-  /*
-   *  Public Methods
-   */
-  function init() {
-    var googleSheetTodo = document.getElementById("googleSheetTodo");
-    googleSheetTodo.addEventListener("rise-google-sheet-response", function(e) {
-      addList(e.detail.cells);
-      displayList();
-      // _getScrollEl();
-    });
-    googleSheetTodo.go();
-  }
-// alert('test');
-
-
-  return {
-    "init": init
   };
-})();
+
+  // Clear error message when 'x' icon is clicked
+  $('i.fa-times').on('click', function(){
+    $('.error').hide();
+  });
+
+  // Call addTodo function on click
+  $('.add-todo').on('click', addTodo);
+
+
+  // Call addTodo function when enter key is pressed
+  $(document).on('keypress', function(e){
+    if(e.which == 13) {
+      addTodo();
+    }
+  });
+
+
+  // Clear typed text and refocus input box
+  $('.clear-text').on('click', function(e) {
+    e.preventDefault();
+    $('input').val("").focus();
+  });
+
+
+  // Mark list item complete
+  $(document).on('click', '.check', function(e){
+    e.preventDefault();
+    $(this).closest('li').toggleClass('complete');
+  });
+
+
+  // Fade list item and delete from DOM
+  $(document).on('click', '.delete-todo' , function(e){
+    e.preventDefault();
+    $(this).closest('li').fadeOut(500, function(){
+      $(this).remove();
+    });
+  });
+
+});

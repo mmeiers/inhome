@@ -1,10 +1,10 @@
-/* global RiseVision */
-(function () {
-  "use strict";
+"use strict";
 
-  window.addEventListener("WebComponentsReady", function() {
-    RiseVision.Directory.init();
-    RiseVision.Grocery.init();
-    RiseVision.Todo.init();
-  });
-})();
+$(function() {
+
+  $("#keyboard").makeKeyboard();
+
+  //inject the SVG elements
+  new SVGInjector().inject(document.querySelectorAll('svg[data-src]'));
+
+});

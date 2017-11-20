@@ -1,0 +1,145 @@
+//== COLORS 🎨 ==//
+
+$keyboard : #EEE;
+$keys : #FFF;
+$special : #0071A6;
+$text : #333;
+$specialText : #FFF;
+$clicked : darken($keys,10%);
+
+//== SHADOWS 🌘 ==//
+
+$standardShadow : 0 0 2px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.2);
+
+//== TEXT 📖 ==//
+
+$fontFamily : "Lato", sans-serif;
+$standardSize : 26px;
+$regular : 400;
+$bold : 700;
+$black : 900;
+
+//== CONTAINERS 🔳 ==//
+$keyboardWidth : 1100px;
+$keyboardRowHeight : 90px;
+$keyWidth : 80px;
+$keyHeight : 80px;
+$keyMargin : 4px;
+$keyBorderRadius : 2px;
+$spaceKeyWidth : 500px;
+$enterKeyWidth : 200px;
+
+%keyboard {
+  width:$keyboardWidth;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:flex-start;
+  font-size:$standardSize;
+  background:$keyboard;
+  font-family:$fontFamily;
+  margin-top:200px;
+}
+
+%keyboardRow {
+  display:flex;
+  list-style:none;
+  margin: 0;
+  padding: 0;
+  height:$keyboardRowHeight;
+}
+
+%keys {
+  width:$keyWidth;
+  height:$keyHeight;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:$text;
+  background:$keys;
+  margin:$keyMargin;
+  border-radius:$keyBorderRadius;
+  box-shadow: $standardShadow;
+  transition:all 0.1s;
+}
+
+%spaceKey {
+  font-weight:$bold;
+  width:$spaceKeyWidth;
+}
+
+%enterKey {
+  width:$enterKeyWidth;
+  color:$specialText;
+  background:linear-gradient(lighten($special,10%), $special);
+}
+
+//== Put it all together ==//
+
+
+#keyboard {
+  @extend %keyboard;
+}
+
+.keyboard-row {
+  @extend %keyboardRow;
+
+  li {
+    @extend %keys;
+  }
+
+  li.space {
+    @extend %spaceKey;
+  }
+
+  li.enter {
+    @extend %enterKey;
+  }
+}
+
+.off {
+  display:none;
+}
+
+.on {
+  display:none;
+}
+
+.delete svg {
+  position: relative;
+  top:5px;
+}
+
+.delete svg stop:nth-of-type(1n) {
+stop-color:lighten($special, 10%);
+}
+
+.delete svg stop:nth-of-type(2n) {
+stop-color:$special;
+}
+
+
+.capslock path {
+  fill:$special;
+}
+
+.capslock svg {
+  position: relative;
+  top:5px;
+}
+
+.caps {
+  text-transform:uppercase;
+}
+
+.visible {
+  display:block !important;
+}
+
+.clicked {
+  transform: scale3d(1.1,1.1,1.1);
+  background: $clicked !important;
+}
+
+
+
