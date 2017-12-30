@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <title>Material VCard</title>
 
-
-
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
@@ -67,14 +63,7 @@
 
 </script>
 <style>
-  #googleCalendar {
-    position: absolute;
-    top:20px;
-    left:400px;
-    height: 600px !important;
-    max-width: 1120px;
-    margin: 0 auto;
-  }
+
 
 </style>
 
@@ -91,41 +80,32 @@
 		<div class="card-content">
 			<div class="row">
 				<div class="left col">
-                  <h4>Meiers Family</h4><h2>Lincoln, Mabel, Mat &amp; Sarah</h2>
+<h4>Our Home Display</h4>
+                  <h2><b>Meiers</b> Family</h2>
 
 
-                  <div class="kenburn-slider">
-                    <ul class="slides">
-                      <li>
-                        <div data-bg="build/img/1.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="bottom right" class="slide-image"></div>
-                      </li>
-                      <li>
-                        <div data-bg="build/img/2.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="top left" class="slide-image"></div>
-                      </li>
-                      <li>
-                        <div data-bg="build/img/3.jpg?fit=crop&amp;fm=jpg&amp;h=725&amp;q=75&amp;w=1050" data-kenburn-start="top center" class="slide-image"></div>
-                      </li>
-                      <li>
-                        <div data-bg="build/img/4.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="top right" class="slide-image"></div>
-                      </li>
-                      <li>
-                        <div data-bg="build/img/5.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="bottom left" class="slide-image"></div>
-                      </li>
-                      <li>
-                        <div data-bg="build/img/6.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="bottom center" class="slide-image"></div>
-                      </li>
-                      <li>
-                        <div data-bg="build/img/7.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="center center" class="slide-image"></div>
-                      </li>
-                    </ul>
-                  </div>
 				</div>
 
 			</div>
 <!-- Docs at http://http://simpleweatherjs.com -->
 <div id="weather"></div>
 
-
+<div class="kenburn-slider">
+                    <ul class="slides">
+                      <li>
+                        <div data-bg="build/img/home-bg1.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="top left" class="slide-image"></div>
+                      </li>
+                      <li>
+                        <div data-bg="build/img/home-bg2.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="top right" class="slide-image"></div>
+                      </li>
+                      <li>
+                        <div data-bg="build/img/home-bg3.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="bottom right" class="slide-image"></div>
+                      </li>
+                      <li>
+                        <div data-bg="build/img/home-bg4.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="bottom left" class="slide-image"></div>
+                      </li>
+                    </ul>
+                  </div>
 
 		</div>
 	</div>
@@ -148,64 +128,59 @@
 		</div>
 	</div>
 
-	<div class="card" id="behance">
-		<a class="card-toggle grocery"><i class="material-icons">shopping_cart</i></a>
-		<div class="card-content">
+    <div class="card" id="todo">
+    <a class="card-toggle todo"><i class="material-icons">view_list</i></a>
+    <div class="card-content">
+      <div class="row">
+        <div class="left col">
+          <h2><b>To Do</b> List</h2>
+            <div class="left-container">
+              <!--TO DO LIST-->
+              <!-- Start to-do list -->
+               <ul class="todo-list col-xs-12">
+              </ul>
+              </div><!--end left container-->
 
-			<div class="row">
-				<div class="left col">
-					<h4>Meiers Family</h4><h2>Grocery List</h2>
-
-
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="card" id="linkedin">
-		<a class="card-toggle todo"><i class="material-icons">view_list</i></a>
-		<div class="card-content">
-			<div class="row">
-				<div class="left col">
-					<h4>Meiers Family</h4><h2>To Do List</h2>
-<div class="left-container">
-          <!--TO DO LIST-->
-<div class="container">
-    <div class="input-buttons">
-      <input type="text" class="col-xs-8 col-sm-9">
-      <a href="#" class="clear-text"><i class="fa fa-trash-o fa-2x"></i></a>
-      <a href="#" class="add-todo"><i class="fa fa-plus fa-2x"></i></a>
-    </div> <!-- div.input-buttons-->
-    <div class="error">
-      <a href="#"><i class="fa fa-times"></i></a>
-      <p>We both know you should be doing something right now. Please enter a task.</p>
-    </div> <!-- div.error -->
-    <!-- Start to-do list -->
-
-</div> <!-- div.container -->
-
-<!--KEYBOARD-->
-    <!-- create an element with the ID of keyboard for the JS to target -->
-    <div id="keyboard">
-      <!-- Keyboard will be appended here -->
+            <div class="right-container">
+               <div class="input-buttons">
+                <input type="text" placeholder="ADD LIST ITEM" class="col-xs-8 col-sm-9">
+                <!--<a href="#" class="clear-text"><i class="fa fa-trash-o fa-2x"></i></a>-->
+                <a href="#" class="add-todo"><i class="material-icons">add</i></a>
+              </div> <!-- div.input-buttons-->
+              <div class="error">
+                <a href="#"><i class="fa fa-times"></i></a>
+                <p>Add To Do Item!</p>
+              </div> <!-- div.error -->
+              <!--KEYBOARD-->
+                <!-- create an element with the ID of keyboard for the JS to target -->
+               <div id="keyboard">
+              <!-- Keyboard will be appended here -->
+                </div>
+            </div><!--end right container-->
+        </div>
+      </div>
     </div>
-    </div><!--end left container-->
-    <div class="right-container">
-      <ul class="todo-list col-xs-12">
-      </ul>
-    </div><!--end right container-->
+  </div><!--end todo-->
+
+	<div class="card" id="grocery">
+		<a class="card-toggle grocery"><i class="material-icons">mode_edit</i></a>
+		<div class="card-content">
+
+			<div class="row">
+				<div class="left col">
+					<h2><b>Family</b> Notes</h2>
+          <div id="sketch"></div>
+
 				</div>
-
-
-
 			</div>
-
-
 		</div>
 	</div>
+
 
 </div>
 
 
+ <script src="build/scripts/sketch.js"></script>
 
 <script src='build/scripts/keyboard.js'></script>
 

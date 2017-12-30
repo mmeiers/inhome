@@ -1,123 +1,112 @@
-$dark-gray: #455a64;
-$light-gray: #90a4ae;
-$white: #eceff1;
-$red: #ff5252;
-$green: #69f0ae;
-$white-border: 1px solid $white;
+
 
 .left-container {
   position:absolute;
-  top:200px;
+  width:780px;
+  top:125px;
   left:50px;
-  //background-color:yellow;
-  height: 800px;
+  margin: 0px;
+  height: 740px;
+  background-color:$alpha;
+  border-radius:$radius;
 }
 .right-container {
   position:absolute;
-  top:200px;
-  left:1200px;
-  width:700px;
-  height: 800px;
+  margin:0px;
+  top:0px;
+  left:860px;
+  width:1060px;
+  height: 1080px;
+  //background-color:$alpha;
 }
 
-.container {
-  position:absolute;
-  top:0;
-  left:0;
-  z-index: 9999;
-  margin: 0 auto;
-  width: 95%;
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $alpha5;
 }
 
 input {
   background: transparent;
+  width:860px;
   border: none {
-    bottom: $white-border;
+    bottom: 2px solid $alpha5;
   }
-  font-size: 24px;
+  font-size: $fontSmall;
   height: 50px;
-  padding-bottom: 15px;
+  color:$white;
+  margin-top: 20px;
+  padding: 20px 0px;
   &:focus {
     outline: 0;
   }
-  @media (min-width: 900px) {
-    font-size: 32px;
-  }
+
 }
 
 .input-buttons {
   height: 50px;
-  border-bottom: $white-border;
+  width:100%;
+  //border-bottom: $white-border;
   padding: 0;
   i {
-    padding: 0 12px;
-    color: $white;
-    float: right;
+    padding: 0px 10px 0px 0px;
+    float: left;
+    font-size: $fontLarge;
   }
-  .fa-plus {
-    border-right: $white-border;
-  }
-  @media (min-width: 600px) {
-    .fa-trash-o:hover {
-      color: $red;
-    }
-    .fa-plus:hover {
-      color: #69f0ae;
-    }
+  .material-icons {
+    color:$todo-light !important;
+    font-size: $fontHeading !important;
+    line-height: $fontHeading !important;
   }
 }
 
 .error {
-  color: $red;
+  color: $white;
   display: none;
-  font-size: 16px;
+  font-size: $fontTiny;
   margin-top: 20px;
   text-align: center;
   .fa-times{
     color: $white;
     padding: 5px 15px;
-    float: right;
-    &:hover {
-      color: #fafafa;
-    }
+    float: left;
   }
   p {
-    margin: 20px 0;
-    @media (min-width: 600px ){
-      font-size: 20px;
-    }
+    width: 800px;
   }
 }
 
 .todo-list{
   padding: 0;
-  margin: 20px 0 50px;
+  margin: 25px;
   .todo {
-    background: $white;
-    border-bottom: 1px dotted $dark-gray;
-    color: $dark-gray;
-    font-size: 20px;
+    background: $todo-light;
+    border:none !important;
+    box-shadow: $main-shadow;
+    color: $white;
+    border:none;
+    font-size: $fontMedium;
     list-style: none;
-    padding: 20px 130px 20px 15px;
+    padding: 0px 130px 10px 15px;
     position: relative;
+    margin-top:25px;
     white-space: normal;
+    border-radius: $radius;
   }
 }
 
 .item {
   position: absolute;
-  top: 15px;
+  top: 0px;
   right: 0;
+
   a {
-    color: $dark-gray;
+    color: $grey;
   }
   i{
-    padding: 10px 15px;
+    padding: 0px 15px;
   }
   .fa-check {
-    border-right: 1px solid $dark-gray;
     &:hover {
-      color: $green;
+      color: $todo-light;
     }
   }
   .fa-trash-o:hover {
@@ -126,10 +115,10 @@ input {
 }
 
 .complete {
-  color: $light-gray;
+  color: $grey;
   text-decoration: line-through;
   .check {
-    color: $green;
+    color: $todo-light;
   }
 }
 

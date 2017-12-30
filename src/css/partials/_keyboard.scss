@@ -21,7 +21,7 @@ $black : 900;
 
 //== CONTAINERS 🔳 ==//
 $keyboardWidth : 1100px;
-$keyboardRowHeight : 90px;
+$keyboardRowHeight : 120px;
 $keyWidth : 80px;
 $keyHeight : 80px;
 $keyMargin : 4px;
@@ -35,9 +35,9 @@ $enterKeyWidth : 200px;
   flex-wrap:wrap;
   justify-content:center;
   align-items:flex-start;
-  font-size:$standardSize;
-  background:$keyboard;
-  font-family:$fontFamily;
+  font-size:$fontMedium;
+  //background:$keyboard;
+  font-family:$font-stack;
   margin-top:200px;
 }
 
@@ -55,17 +55,20 @@ $enterKeyWidth : 200px;
   display:flex;
   justify-content:center;
   align-items:center;
-  color:$text;
-  background:$keys;
+  color:$white;
+  //background:$keys;
+  font-weight:$weight_bold;
   margin:$keyMargin;
   border-radius:$keyBorderRadius;
-  box-shadow: $standardShadow;
+  //box-shadow: $standardShadow;
   transition:all 0.1s;
 }
 
 %spaceKey {
-  font-weight:$bold;
   width:$spaceKeyWidth;
+  background:$alpha;
+  font-size:$fontSmall;
+  border-radius:$radius;
 }
 
 %enterKey {

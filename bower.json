@@ -1,0 +1,18 @@
+{
+  "name": "template",
+  "description": "starter template for client content",
+  "main": "index.js",
+  "authors": [
+    "mlm@risedisplay.com"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Rise-Vision/client-content-presentations",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

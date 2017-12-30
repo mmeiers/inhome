@@ -17,8 +17,8 @@ $(function(){
 
       // Create new list item
       var $newListItem = $('<li class="todo">' + $todo + '<span class="item">' +
-      '<a href="#" class="check">' + '<i class="fa fa-check fa-lg"></i>' + '</a>' +
-      '<a href="#" class="delete-todo">' + '<i class="fa fa-trash-o fa-lg"></i>' + '</a>' +
+      '<a href="#" class="check">' + '<i class="material-icons">check</i>' + '</a>' +
+      '<a href="#" class="delete-todo">' + '<i class="material-icons">remove</i>' + '</a>' +
       '</span>' + '</li>');
 
       // Add list item to end of list

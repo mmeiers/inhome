@@ -319,7 +319,9 @@ i {
   display: inline-block; }
 
 #weather .currently {
-  margin: 0 20px; }
+  margin: 0 10px;
+  font-weight: 700;
+  font-size: 30px; }
 
 #keyboard {
   width: 1100px;
@@ -334,9 +336,8 @@ i {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  font-size: 26px;
-  background: #EEE;
-  font-family: "Lato", sans-serif;
+  font-size: 48px;
+  font-family: "Raleway", sans-serif;
   margin-top: 200px; }
 
 .keyboard-row {
@@ -346,7 +347,7 @@ i {
   list-style: none;
   margin: 0;
   padding: 0;
-  height: 90px; }
+  height: 120px; }
 
 .keyboard-row li {
   width: 80px;
@@ -360,17 +361,18 @@ i {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #333;
-  background: #FFF;
+  color: #FFFFFF;
+  font-weight: 700;
   margin: 4px;
   border-radius: 2px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.2);
   -webkit-transition: all 0.1s;
   transition: all 0.1s; }
 
 .keyboard-row li.space {
-  font-weight: 700;
-  width: 500px; }
+  width: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 30px;
+  border-radius: 10px; }
 
 .keyboard-row li.enter {
   width: 200px;
@@ -414,385 +416,103 @@ i {
 
 .left-container {
   position: absolute;
-  top: 200px;
+  width: 780px;
+  top: 125px;
   left: 50px;
-  height: 800px; }
+  margin: 0px;
+  height: 740px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px; }
 
 .right-container {
   position: absolute;
-  top: 200px;
-  left: 1200px;
-  width: 700px;
-  height: 800px; }
+  margin: 0px;
+  top: 0px;
+  left: 860px;
+  width: 1060px;
+  height: 1080px; }
 
-.container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  margin: 0 auto;
-  width: 95%; }
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba(255, 255, 255, 0.5); }
 
 input {
   background: transparent;
+  width: 860px;
   border: none;
-    border-bottom: 1px solid #eceff1;
-  font-size: 24px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  font-size: 30px;
   height: 50px;
-  padding-bottom: 15px; }
+  color: #FFFFFF;
+  margin-top: 20px;
+  padding: 20px 0px; }
   input:focus {
     outline: 0; }
-  @media (min-width: 900px) {
-    input {
-      font-size: 32px; } }
 
 .input-buttons {
   height: 50px;
-  border-bottom: 1px solid #eceff1;
+  width: 100%;
   padding: 0; }
   .input-buttons i {
-    padding: 0 12px;
-    color: #eceff1;
-    float: right; }
-  .input-buttons .fa-plus {
-    border-right: 1px solid #eceff1; }
-  @media (min-width: 600px) {
-    .input-buttons .fa-trash-o:hover {
-      color: #ff5252; }
-    .input-buttons .fa-plus:hover {
-      color: #69f0ae; } }
+    padding: 0px 10px 0px 0px;
+    float: left;
+    font-size: 64px; }
+  .input-buttons .material-icons {
+    color: #30C5C2 !important;
+    font-size: 100px !important;
+    line-height: 100px !important; }
 
 .error {
-  color: #ff5252;
+  color: #FFFFFF;
   display: none;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 20px;
   text-align: center; }
   .error .fa-times {
-    color: #eceff1;
+    color: #FFFFFF;
     padding: 5px 15px;
-    float: right; }
-    .error .fa-times:hover {
-      color: #fafafa; }
+    float: left; }
   .error p {
-    margin: 20px 0; }
-    @media (min-width: 600px) {
-      .error p {
-        font-size: 20px; } }
+    width: 800px; }
 
 .todo-list {
   padding: 0;
-  margin: 20px 0 50px; }
+  margin: 25px; }
   .todo-list .todo {
-    background: #eceff1;
-    border-bottom: 1px dotted #455a64;
-    color: #455a64;
-    font-size: 20px;
+    background: #30C5C2;
+    border: none !important;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    border: none;
+    font-size: 48px;
     list-style: none;
-    padding: 20px 130px 20px 15px;
+    padding: 0px 130px 10px 15px;
     position: relative;
-    white-space: normal; }
+    margin-top: 25px;
+    white-space: normal;
+    border-radius: 10px; }
 
 .item {
   position: absolute;
-  top: 15px;
+  top: 0px;
   right: 0; }
   .item a {
-    color: #455a64; }
+    color: #444444; }
   .item i {
-    padding: 10px 15px; }
-  .item .fa-check {
-    border-right: 1px solid #455a64; }
-    .item .fa-check:hover {
-      color: #69f0ae; }
+    padding: 0px 15px; }
+  .item .fa-check:hover {
+    color: #30C5C2; }
   .item .fa-trash-o:hover {
-    color: #ff5252; }
+    color: #FE626D; }
 
 .complete {
-  color: #90a4ae;
+  color: #444444;
   text-decoration: line-through; }
   .complete .check {
-    color: #69f0ae; }
+    color: #30C5C2; }
 
-body {
-  font-family: "Raleway", sans-serif;
-  color: 900;
-  overflow: hidden !important;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Chrome/Safari/Opera */ }
-
-.calendar-filter {
-  color: #AEAEAE;
-  font-weight: 200;
-  height: 100px;
-  float: left;
-  margin: -40px 0 0 200px;
-  background-color: red; }
-  .calendar-filter span {
-    padding-bottom: 100px;
-    font-size: 36px !important;
-    line-height: 150px !important;
-    height: 200px;
-    background-color: green; }
-  .calendar-filter .material-icons {
-    color: #FCC04D !important;
-    font-size: 60px !important;
-    line-height: 60px;
-    background-color: blue; }
-
-.back {
-  color: #eceff1 !important;
-  font-size: 60px !important; }
-
-.back::after {
-  color: white;
-  content: "hi"; }
-
-body {
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: #fefefe;
-  font-family: "Raleway", sans-serif;
-  font-weight: 300;
-  line-height: 1.8;
-  background-size: cover;
-  background-repeat: no-repeat; }
-
-i {
-  color: #fefefe !important; }
-
-p {
-  font-size: 2em;
-  width: 50%; }
-
-.contact {
-  position: absolute;
-  top: 30px;
-  left: 50px;
-  z-index: 6;
-  color: rgba(0, 0, 0, 0.5);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 5px 15px;
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0.1);
-  line-height: 1;
-  cursor: pointer;
-  text-shadow: 0 1px 0px rgba(255, 255, 255, 0.1); }
-  .contact-form {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background: white;
-    z-index: 5;
-    padding: 80px 50px;
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
-    -webkit-transition: .3s ease;
-    transition: .3s ease;
-    border-radius: 5px; }
-    .contact-form.active {
-      -webkit-transform: translate3d(0, 0, 0);
-              transform: translate3d(0, 0, 0); }
-    .contact-form .close {
-      color: rgba(0, 0, 0, 0.7);
-      position: absolute;
-      right: 30px;
-      top: 30px; }
-
-.cards {
-  margin: auto;
-  background: #302f34;
-  /*border-radius: 5px;*/
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 3px 5px 20px rgba(0, 0, 0, 0.2);
-  width: 1920px;
-  height: 100vh;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  padding: 30px; }
-  .cards .card {
-    display: inline-block;
-    margin-right: 20px; }
-  .cards .card-toggle {
-    z-index: 4;
-    position: relative;
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    display: block;
-    text-align: center;
-    line-height: 1.8;
-    font-size: 48px;
-    cursor: pointer;
-    -webkit-transition: .3s ease;
-    transition: .3s ease; }
-    .cards .card-toggle.active {
-      background-color: white; }
-  .cards .calendar {
-    border: 2px solid;
-    border-color: #FCC04D; }
-    .cards .calendar.active {
-      background-color: #FCC04D; }
-  .cards .grocery {
-    border: 2px solid;
-    border-color: #00C3E2; }
-    .cards .grocery.active {
-      background-color: #00C3E2; }
-  .cards .todo {
-    border: 2px solid;
-    border-color: #ff5252; }
-    .cards .todo.active {
-      background-color: #ff5252; }
-  .cards .material-icons {
-    font-size: 48px;
-    line-height: 2em; }
-  .cards .card-content {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    transition: -webkit-clip-path 1s ease;
-    padding: 30px 0 0;
-    overflow: hidden; }
-    .cards .card-content .row {
-      display: table;
-      width: 100%;
-      height: 100%; }
-    .cards .card-content .col {
-      width: 50%;
-      height: 100%;
-      display: table-cell;
-      -webkit-transition: .3s ease .3s;
-      transition: .3s ease .3s;
-      -webkit-transform: translate3d(0, 0, 0);
-              transform: translate3d(0, 0, 0);
-      vertical-align: top;
-      color: #fefefe; }
-      .cards .card-content .col h2 {
-        font-weight: 300;
-        font-size: 100px;
-        line-height: 1;
-        margin: -40px 0 0px;
-        float: left;
-        color: #fefefe;
-        text-transform: uppercase; }
-        .cards .card-content .col h2 strong {
-          font-weight: 700; }
-      .cards .card-content .col h4 {
-        font-size: 30px;
-        text-transform: uppercase; }
-      .cards .card-content .col.left {
-        -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
-        opacity: 0;
-        padding-left: 50px; }
-      .cards .card-content .col.right {
-        -webkit-transform: translate3d(100px, 0, 0);
-                transform: translate3d(100px, 0, 0);
-        opacity: 0;
-        padding-left: 30px; }
-  .cards .card.active .col {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-    opacity: 1; }
-  .cards #overview .card-toggle {
-    position: absolute;
-    top: 950px;
-    right: 30px;
-    opacity: 1;
-    color: white; }
-  .cards #overview .card-content {
-    background-color: #302f34;
-    -webkit-clip-path: circle(0% at 91.5% 75px); }
-  .cards #overview.active .card-toggle {
-    opacity: 0; }
-  .cards #overview.active .card-content {
-    -webkit-clip-path: circle(270% at 91.5% 75px); }
-  .cards #calendar .card-content, .cards #grocery .card-content, .cards #linkedin .card-content, .cards #twitter .card-content {
-    color: white; }
-    .cards #calendar .card-content p, .cards #grocery .card-content p, .cards #linkedin .card-content p, .cards #twitter .card-content p {
-      color: rgba(255, 255, 255, 0.8); }
-  .cards #calendar .card-content {
-    background-color: #444444;
-    -webkit-clip-path: circle(0% at 76px 88%);
-    clip-path: circle(0% at 50px 88%); }
-  .cards #calendar.active .card-content {
-    -webkit-clip-path: circle(270% at 76px 88%);
-    clip-path: circle(270% at 50px 88%); }
-  .cards #behance .card-content {
-    background-color: #444444;
-    -webkit-clip-path: circle(0% at 150px 88%);
-    clip-path: circle(0% at 150px 88%); }
-  .cards #behance.active .card-content {
-    -webkit-clip-path: circle(270% at 150px 88%);
-    clip-path: circle(270% at 150px 88%); }
-  .cards #linkedin .card-content {
-    background-color: #444444;
-    -webkit-clip-path: circle(0% at 220px 88%);
-    clip-path: circle(0% at 220px 88%); }
-  .cards #linkedin.active .card-content {
-    -webkit-clip-path: circle(270% at 220px 88%);
-    clip-path: circle(270% at 220px 88%); }
-  .cards #twitter .card-content {
-    background-color: #444444;
-    -webkit-clip-path: circle(0% at 292px 88%);
-    clip-path: circle(0% at 292px 88%); }
-  .cards #twitter.active .card-content {
-    -webkit-clip-path: circle(270% at 292px 88%);
-    clip-path: circle(270% at 292px 88%); }
-
-form .control {
-  position: relative;
-  margin-bottom: 10px;
-  padding-top: 20px; }
-  form .control label {
-    position: absolute;
-    top: 30px;
-    left: 0;
-    -webkit-transition: .3s ease;
-    transition: .3s ease;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-size: 14px; }
-  form .control.submit {
-    text-align: right; }
-
-form input, form textarea {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #e3e3e3;
-  outline: none;
-  padding: 10px 0; }
-
-form .filled label, form input:focus + label, form textarea:focus + label {
-  top: 0;
-  font-size: 12px; }
-
-form textarea {
-  height: 100px; }
-
-form input[type="submit"] {
-  width: auto;
-  background-color: #F06292;
-  padding: 10px 40px;
-  color: white;
-  border-radius: 40px; }
+.groceries__left-container {
+  background-image: url("../img/colorized-mabel.png"); }
 
 html {
   overflow: hidden; }
@@ -813,7 +533,7 @@ html {
   position: absolute;
   top: -30px;
   left: 0;
-  opacity: .3; }
+  z-index: -1; }
 
 .kenburn-slider .slides {
   list-style: none;
@@ -826,7 +546,7 @@ html {
   margin-right: -100%;
   width: 100%;
   overflow: hidden;
-  height: 1080px;
+  height: 1280px;
   position: relative; }
 
 .kenburn-slider .flex-direction-nav {
@@ -872,3 +592,189 @@ html {
   100% {
     -webkit-transform: scale(1);
     transform: scale(1); } }
+
+body {
+  font-family: "Raleway", sans-serif;
+  color: 900;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */ }
+
+.back {
+  color: #FFFFFF !important;
+  font-size: 60px !important; }
+
+.back::after {
+  color: white;
+  content: "hi"; }
+
+body {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+i {
+  color: #fefefe !important; }
+
+p {
+  font-size: 2em;
+  width: 50%; }
+
+.cards {
+  margin: auto;
+  /*border-radius: 5px;*/
+  overflow: hidden;
+  width: 1920px;
+  height: 100vh;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 30px; }
+  .cards .card {
+    display: inline-block;
+    margin-right: 20px; }
+  .cards .card-toggle {
+    z-index: 4;
+    position: relative;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    display: block;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 48px;
+    cursor: pointer;
+    -webkit-transition: .3s ease;
+    transition: .3s ease; }
+    .cards .card-toggle.active {
+      background-color: white; }
+  .cards .calendar {
+    border: 4px solid;
+    border-color: #0CA1EA;
+    background-color: #0CA1EA; }
+    .cards .calendar.active {
+      border-color: #0CA1EA;
+      background-color: transparent; }
+  .cards .grocery {
+    border: 4px solid;
+    border-color: #BC3A91;
+    background-color: #BC3A91; }
+    .cards .grocery.active {
+      border-color: #BC3A91;
+      background-color: transparent; }
+  .cards .todo {
+    border: 4px solid;
+    border-color: #30C5C2;
+    background-color: #30C5C2; }
+    .cards .todo.active {
+      border-color: #30C5C2;
+      background-color: transparent; }
+  .cards .material-icons {
+    font-size: 48px;
+    line-height: 2em; }
+  .cards .card-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: -webkit-clip-path 1s ease;
+    padding: 50px 0 0;
+    overflow: hidden; }
+    .cards .card-content .row {
+      display: table;
+      width: 100%;
+      height: 100%; }
+    .cards .card-content .col {
+      width: 50%;
+      height: 100%;
+      display: table-cell;
+      -webkit-transition: .3s ease .3s;
+      transition: .3s ease .3s;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+      vertical-align: top;
+      color: #fefefe; }
+      .cards .card-content .col h2 {
+        font-weight: 300;
+        font-size: 100px;
+        line-height: 1;
+        margin: 0px;
+        float: left;
+        color: #fefefe;
+        text-transform: uppercase; }
+        .cards .card-content .col h2 strong {
+          font-weight: 700; }
+      .cards .card-content .col h4 {
+        font-size: 30px;
+        line-height: 30px;
+        text-transform: uppercase;
+        z-index: 999; }
+      .cards .card-content .col.left {
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+        opacity: 0;
+        padding-left: 50px; }
+      .cards .card-content .col.right {
+        -webkit-transform: translate3d(100px, 0, 0);
+                transform: translate3d(100px, 0, 0);
+        opacity: 0;
+        padding-left: 30px; }
+  .cards .card.active .col {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    opacity: 1; }
+  .cards #overview .card-toggle {
+    position: absolute;
+    top: 950px;
+    right: 30px;
+    opacity: 1;
+    color: white; }
+  .cards #overview h4 {
+    margin: 0; }
+  .cards #overview .card-content {
+    -webkit-clip-path: circle(0% at 91.5% 88%); }
+  .cards #overview.active .card-toggle {
+    opacity: 0; }
+  .cards #overview.active .card-content {
+    -webkit-clip-path: circle(270% at 91.5% 88%); }
+  .cards #calendar .card-content, .cards #grocery .card-content, .cards #overview .card-content, .cards #todo .card-content {
+    color: white; }
+    .cards #calendar .card-content p, .cards #grocery .card-content p, .cards #overview .card-content p, .cards #todo .card-content p {
+      color: rgba(255, 255, 255, 0.8); }
+  .cards #calendar .card-content {
+    background-color: #053b55;
+    background-image: url("../img/calendar-bg.png");
+    -webkit-clip-path: circle(0% at 76px 88%);
+    clip-path: circle(0% at 76px 88%); }
+  .cards #calendar.active .card-content {
+    -webkit-clip-path: circle(270% at 76px 88%);
+    clip-path: circle(270% at 76px 88%); }
+  .cards #todo .card-content {
+    background-color: #0f4847;
+    background-image: url("../img/todo-bg.png");
+    -webkit-clip-path: circle(0% at 220px 88%);
+    clip-path: circle(0% at 220px 88%); }
+  .cards #todo.active .card-content {
+    -webkit-clip-path: circle(270% at 220px 88%);
+    clip-path: circle(270% at 220px 88%); }
+  .cards #grocery .card-content {
+    background-color: #38182c;
+    background-image: url("../img/grocery-bg.png");
+    -webkit-clip-path: circle(0% at 150px 88%);
+    clip-path: circle(0% at 150px 88%); }
+  .cards #grocery.active .card-content {
+    -webkit-clip-path: circle(270% at 150px 88%);
+    clip-path: circle(270% at 150px 88%); }
