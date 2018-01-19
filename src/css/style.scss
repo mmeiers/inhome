@@ -20,11 +20,11 @@ $red: #FE626D;
 $alpha: rgba(255,255,255, .1);
 $alpha5: rgba(255,255,255, .5);
 
-$calendar-dark:rgba(5, 59, 85, 1);
-$calendar-light:#0CA1EA;
+$todo-dark:rgba(5, 59, 85, 1);
+$todo-light:#0CA1EA;
 
-$todo-dark:rgba(15, 72, 71, 1);
-$todo-light:#30C5C2;
+$calendar-dark:rgba(15, 72, 71, 1);
+$calendar-light:#30C5C2;
 
 $grocery-dark:rgba(56, 24, 44, 1);
 $grocery-light:#BC3A91;
@@ -42,6 +42,7 @@ $weight_bold: 700;
 $weight_boldest: 900;
 
 //== Sizes ==
+$icons: 88px;
 $fontTiny: 14px;
 $fontSmall: 30px;
 $fontMedium: 48px;
@@ -53,11 +54,40 @@ $fontHeading: 100px;
 /**IMPORT STYLES FROM PARTIALS FILE**/
 @import 'partials';
 
+/**SCROLL BAR SKIN**/
+::-webkit-scrollbar {
+
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  height: 10px;
+  background-clip: padding-box;
+  -webkit-border-radius: 10px;
+  background-color: $todo-light;
+
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: $alpha;
+  border-radius: 20px;
+  border: 20px solid transparent;
+  width:3px;
+}
 
 
 body {
   font-family:$font-stack;
   color: $black;
+  -webkit-user-select: none;
   overflow:hidden !important;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -73,6 +103,10 @@ body {
   content: "hi";
 }
 
+.calendar, .todo, .grocery {
+  top:-40px;
+  left:20px;
+}
 
 
 //MATERIAL CARD
@@ -103,11 +137,11 @@ p {
 	/*border-radius: 5px;*/
 	overflow: hidden;
 	width: 1920px;
-	height:100vh;
+	height:1080px;
 	position: relative;
 	display: flex;
 	align-items: flex-end;
-	padding: 30px;
+	padding: 0px;
 
 
 	.card{
@@ -138,6 +172,8 @@ p {
     border: 4px solid;
     border-color: $calendar-light;
     background-color: $calendar-light;
+    box-shadow: $main-shadow;
+
     &.active{
       border-color: $calendar-light;
       background-color: transparent;
@@ -148,6 +184,8 @@ p {
     border: 4px solid;
     border-color: $grocery-light;
     background-color: $grocery-light;
+    box-shadow: $main-shadow;
+
     &.active{
       border-color: $grocery-light;
       background-color: transparent;
@@ -157,6 +195,8 @@ p {
     border: 4px solid;
     border-color: $todo-light;
     background-color: $todo-light;
+    box-shadow: $main-shadow;
+
     &.active{
       border-color: $todo-light;
       background-color: transparent;
@@ -176,13 +216,15 @@ p {
 		left: 0;
 		top: 0;
 		transition: -webkit-clip-path 1s ease;
-		padding: 50px 0 0;
+		padding: 0;
 		overflow: hidden;
 
 		.row{
 			display: table;
 			width: 100%;
 			height: 100%;
+      margin:0;
+      padding:0;
 		}
 
 		.col{
@@ -198,7 +240,7 @@ p {
 				font-weight: 300;
 				font-size: 100px;
 				line-height: 1;
-				margin: 0px;
+				margin-top: 50px;
                 float:left;
                 color: $lightgrey;
                 text-transform:uppercase;
@@ -272,7 +314,7 @@ z-index:999;
 	#calendar{
 		.card-content{
 			background-color: $calendar-dark;
-      background-image: url("../img/calendar-bg.png");
+      background-image: url("../img/calendar-bg.jpg");
 			-webkit-clip-path: circle(0% at 76px 88%);
 			clip-path: circle(0% at 76px 88%);
 
@@ -285,7 +327,7 @@ z-index:999;
 #todo {
     .card-content{
       background-color: $todo-dark;
-      background-image: url("../img/todo-bg.png");
+      background-image: url("../img/to-do-bg.jpg");
       -webkit-clip-path: circle(0% at 220px 88%);
       clip-path: circle(0% at 220px 88%);
 
@@ -300,7 +342,7 @@ z-index:999;
 	#grocery {
 		.card-content{
 			background-color: $grocery-dark;
-      background-image: url("../img/grocery-bg.png");
+      background-image: url("../img/sketch-bg.jpg");
 			-webkit-clip-path: circle(0% at 150px 88%);
 			clip-path: circle(0% at 150px 88%);
 
@@ -313,5 +355,6 @@ z-index:999;
 	}
 
 }
+
 
 

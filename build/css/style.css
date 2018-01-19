@@ -144,8 +144,8 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   text-transform: uppercase;
   z-index: 999;
   position: absolute;
-  bottom: 30px;
-  right: 30px; }
+  bottom: 20px;
+  right: 0px; }
 
 i {
   color: #FFFFFF;
@@ -304,7 +304,7 @@ i {
   margin: 0 0 8px 0px;
   color: #FFFFFF;
   font-size: 72px;
-  line-height: 100px;
+  line-height: 80px;
   font-weight: 300;
   text-align: center;
   text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15); }
@@ -320,8 +320,10 @@ i {
 
 #weather .currently {
   margin: 0 10px;
+  padding-bottom: 0px;
   font-weight: 700;
-  font-size: 30px; }
+  font-size: 30px;
+  line-height: 30px; }
 
 #keyboard {
   width: 1100px;
@@ -417,12 +419,10 @@ i {
 .left-container {
   position: absolute;
   width: 780px;
-  top: 125px;
+  top: 175px;
   left: 50px;
   margin: 0px;
-  height: 740px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px; }
+  height: 740px; }
 
 .right-container {
   position: absolute;
@@ -452,13 +452,13 @@ input {
 .input-buttons {
   height: 50px;
   width: 100%;
-  padding: 0; }
+  padding-top: 50px; }
   .input-buttons i {
-    padding: 0px 10px 0px 0px;
-    float: left;
+    padding: 0px 30px 0px 0px;
+    float: right;
     font-size: 64px; }
   .input-buttons .material-icons {
-    color: #30C5C2 !important;
+    color: #0CA1EA !important;
     font-size: 100px !important;
     line-height: 100px !important; }
 
@@ -475,11 +475,12 @@ input {
   .error p {
     width: 800px; }
 
-.todo-list {
+#area__todo__scrolling .todo-list {
+  height: 680px;
   padding: 0;
-  margin: 25px; }
-  .todo-list .todo {
-    background: #30C5C2;
+  margin-right: 25px; }
+  #area__todo__scrolling .todo-list .todo {
+    background: #0CA1EA;
     border: none !important;
     box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5);
     color: #FFFFFF;
@@ -501,7 +502,7 @@ input {
   .item i {
     padding: 0px 15px; }
   .item .fa-check:hover {
-    color: #30C5C2; }
+    color: #0CA1EA; }
   .item .fa-trash-o:hover {
     color: #FE626D; }
 
@@ -509,7 +510,7 @@ input {
   color: #444444;
   text-decoration: line-through; }
   .complete .check {
-    color: #30C5C2; }
+    color: #0CA1EA; }
 
 .groceries__left-container {
   background-image: url("../img/colorized-mabel.png"); }
@@ -593,9 +594,57 @@ html {
     -webkit-transform: scale(1);
     transform: scale(1); } }
 
+.clear-button {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  z-index: 999;
+  background-color: transparent !important;
+  border: none !important; }
+  .clear-button .material-icons {
+    color: #BC3A91 !important;
+    font-size: 88px !important;
+    line-height: 88px !important;
+    background-color: transparent !important; }
+
+#sketch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  margin: 0 !important;
+  padding: 0 !important; }
+
+/**SCROLL BAR SKIN**/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px; }
+
+::-webkit-scrollbar-thumb {
+  height: 10px;
+  background-clip: padding-box;
+  -webkit-border-radius: 10px;
+  background-color: #0CA1EA; }
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none; }
+
+::-webkit-scrollbar-corner {
+  background-color: transparent; }
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: 20px solid transparent;
+  width: 3px; }
+
 body {
   font-family: "Raleway", sans-serif;
   color: 900;
+  -webkit-user-select: none;
   overflow: hidden !important;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -609,6 +658,10 @@ body {
 .back::after {
   color: white;
   content: "hi"; }
+
+.calendar, .todo, .grocery {
+  top: -40px;
+  left: 20px; }
 
 body {
   min-height: 100vh;
@@ -633,7 +686,7 @@ p {
   /*border-radius: 5px;*/
   overflow: hidden;
   width: 1920px;
-  height: 100vh;
+  height: 1080px;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -641,7 +694,7 @@ p {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  padding: 30px; }
+  padding: 0px; }
   .cards .card {
     display: inline-block;
     margin-right: 20px; }
@@ -662,24 +715,27 @@ p {
       background-color: white; }
   .cards .calendar {
     border: 4px solid;
-    border-color: #0CA1EA;
-    background-color: #0CA1EA; }
+    border-color: #30C5C2;
+    background-color: #30C5C2;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5); }
     .cards .calendar.active {
-      border-color: #0CA1EA;
+      border-color: #30C5C2;
       background-color: transparent; }
   .cards .grocery {
     border: 4px solid;
     border-color: #BC3A91;
-    background-color: #BC3A91; }
+    background-color: #BC3A91;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5); }
     .cards .grocery.active {
       border-color: #BC3A91;
       background-color: transparent; }
   .cards .todo {
     border: 4px solid;
-    border-color: #30C5C2;
-    background-color: #30C5C2; }
+    border-color: #0CA1EA;
+    background-color: #0CA1EA;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5); }
     .cards .todo.active {
-      border-color: #30C5C2;
+      border-color: #0CA1EA;
       background-color: transparent; }
   .cards .material-icons {
     font-size: 48px;
@@ -691,12 +747,14 @@ p {
     left: 0;
     top: 0;
     transition: -webkit-clip-path 1s ease;
-    padding: 50px 0 0;
+    padding: 0;
     overflow: hidden; }
     .cards .card-content .row {
       display: table;
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      margin: 0;
+      padding: 0; }
     .cards .card-content .col {
       width: 50%;
       height: 100%;
@@ -711,7 +769,7 @@ p {
         font-weight: 300;
         font-size: 100px;
         line-height: 1;
-        margin: 0px;
+        margin-top: 50px;
         float: left;
         color: #fefefe;
         text-transform: uppercase; }
@@ -755,16 +813,16 @@ p {
     .cards #calendar .card-content p, .cards #grocery .card-content p, .cards #overview .card-content p, .cards #todo .card-content p {
       color: rgba(255, 255, 255, 0.8); }
   .cards #calendar .card-content {
-    background-color: #053b55;
-    background-image: url("../img/calendar-bg.png");
+    background-color: #0f4847;
+    background-image: url("../img/calendar-bg.jpg");
     -webkit-clip-path: circle(0% at 76px 88%);
     clip-path: circle(0% at 76px 88%); }
   .cards #calendar.active .card-content {
     -webkit-clip-path: circle(270% at 76px 88%);
     clip-path: circle(270% at 76px 88%); }
   .cards #todo .card-content {
-    background-color: #0f4847;
-    background-image: url("../img/todo-bg.png");
+    background-color: #053b55;
+    background-image: url("../img/to-do-bg.jpg");
     -webkit-clip-path: circle(0% at 220px 88%);
     clip-path: circle(0% at 220px 88%); }
   .cards #todo.active .card-content {
@@ -772,7 +830,7 @@ p {
     clip-path: circle(270% at 220px 88%); }
   .cards #grocery .card-content {
     background-color: #38182c;
-    background-image: url("../img/grocery-bg.png");
+    background-image: url("../img/sketch-bg.jpg");
     -webkit-clip-path: circle(0% at 150px 88%);
     clip-path: circle(0% at 150px 88%); }
   .cards #grocery.active .card-content {

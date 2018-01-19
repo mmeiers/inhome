@@ -8,3 +8,4 @@ $(function() {
   new SVGInjector().inject(document.querySelectorAll('svg[data-src]'));
 
 });
+

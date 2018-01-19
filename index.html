@@ -80,10 +80,8 @@
 		<div class="card-content">
 			<div class="row">
 				<div class="left col">
-<h4>Our Home Display</h4>
-                  <h2><b>Meiers</b> Family</h2>
-
-
+          <!--<h4>Our Home Display</h4>-->
+          <h2><b>Meiers</b> Family</h2>
 				</div>
 
 			</div>
@@ -103,6 +101,18 @@
                       </li>
                       <li>
                         <div data-bg="build/img/home-bg4.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="bottom left" class="slide-image"></div>
+                      </li>
+                      <li>
+                        <div data-bg="build/img/home-bg5.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="top left" class="slide-image"></div>
+                      </li>
+                      <li>
+                        <div data-bg="build/img/home-bg6.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="top right" class="slide-image"></div>
+                      </li>
+                      <li>
+                        <div data-bg="build/img/home-bg7.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="bottom right" class="slide-image"></div>
+                      </li>
+                      <li>
+                        <div data-bg="build/img/home-bg8.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" data-kenburn-start="bottom left" class="slide-image"></div>
                       </li>
                     </ul>
                   </div>
@@ -133,12 +143,16 @@
     <div class="card-content">
       <div class="row">
         <div class="left col">
-          <h2><b>To Do</b> List</h2>
+          <h2><b>To Do</b> Items</h2>
             <div class="left-container">
               <!--TO DO LIST-->
               <!-- Start to-do list -->
-               <ul class="todo-list col-xs-12">
-              </ul>
+              <div id="area__todo__scrolling">
+                <div class="page">
+                 <ul class="todo-list col-xs-12">
+                </ul>
+              </div>
+              </div>
               </div><!--end left container-->
 
             <div class="right-container">
@@ -168,7 +182,8 @@
 
 			<div class="row">
 				<div class="left col">
-					<h2><b>Family</b> Notes</h2>
+					<h2><b>Family</b> Notes<div class="clear-button"><i class="material-icons large-icons">refresh</i></div></h2>
+
           <div id="sketch"></div>
 
 				</div>
@@ -186,6 +201,14 @@
 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/jquery.flexslider-min.js'></script>
 
+<!-- autoscroll dependencies -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenLite.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/plugins/CSSPlugin.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/utils/Draggable.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/plugins/ScrollToPlugin.min.js"></script>
+
+  <!-- Club GreenSock Members Only Plugin, subject to its own license: http://greensock.com/club/ -->
+  <script src="https://s3.amazonaws.com/rise-common/scripts/greensock/1.18.0/ThrowPropsPlugin.min.js"></script>
 
 <!-- Main JS -->
 <script src="build/scripts/all.min.js"></script>

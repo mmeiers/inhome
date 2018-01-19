@@ -1,3 +1,5 @@
+ function sketch () {
+
  var COLOURS = [ '#BC3A91', '#0CA1EA', '#30C5C2', '#FFFFFF', '#BC3A91' ];
         var radius = 0;
 
@@ -40,6 +42,16 @@
                     this.moveTo( touch.ox, touch.oy );
                     this.lineTo( touch.x, touch.y );
                     this.stroke();
+
+
                 }
             }
         });
+    }
+sketch();
+
+$( ".clear-button" ).click(function() {
+                      $("#sketch").empty();
+                      sketch ();
+                    });
+
